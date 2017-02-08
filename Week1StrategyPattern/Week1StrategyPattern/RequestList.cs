@@ -8,18 +8,11 @@ namespace Week1StrategyPattern
 {
     abstract class RequestList
     {
-        public IProcessMode processmode;
-        public List<int> requests;
-        
+        public IProcessMode processmode;        
 
-        public RequestList()
-        {   
-            
-        }
-
-        public virtual void Process()
+        public virtual List<int> Process()
         {
-            processmode.ProcessList();
+            return processmode.ProcessList();
         }
     }
 }
