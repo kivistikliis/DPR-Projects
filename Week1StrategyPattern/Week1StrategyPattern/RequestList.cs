@@ -10,7 +10,7 @@ namespace Week1StrategyPattern
     {
         public IProcessMode processmode;        
 
-        public virtual List<int> Process()
+        public virtual int Process()
         {
             return processmode.ProcessList();
         }

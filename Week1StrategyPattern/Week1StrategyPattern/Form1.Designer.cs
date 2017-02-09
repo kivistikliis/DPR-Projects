@@ -51,7 +51,6 @@
             this.trbViewprocess.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trbViewprocess.Size = new System.Drawing.Size(69, 651);
             this.trbViewprocess.TabIndex = 0;
-            this.trbViewprocess.Scroll += new System.EventHandler(this.trbViewprocess_Scroll);
             // 
             // lbToBeProcessed
             // 
@@ -117,6 +116,7 @@
             this.rbSeekTime.TabStop = true;
             this.rbSeekTime.Text = "Shortest Seek Time";
             this.rbSeekTime.UseVisualStyleBackColor = true;
+            this.rbSeekTime.CheckedChanged += new System.EventHandler(this.rbSeekTime_CheckedChanged);
             // 
             // rbScan
             // 

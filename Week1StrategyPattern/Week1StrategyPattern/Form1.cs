@@ -12,7 +12,7 @@ namespace Week1StrategyPattern
 {
     public partial class Form1 : Form
     {
-        private int counter=-1;
+        //A list of requests, list of the labels that appear dinamically on the form and a label variable for further usage
         List<int> processlist;
         List<Label> labels;
         private Label l;
@@ -24,41 +24,38 @@ namespace Week1StrategyPattern
             InitializeComponent();
             
             processlist = new List<int>();
-            fi = new FirstInFirstOut(processlist);
-            lfi = new ReqListFIFO(fi);
 
             labels = new List<Label>();
             Random r = new Random();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
                 processlist.Add(r.Next(0, 100));
+                lbToBeProcessed.Items.Add(processlist[processlist.Count-1]);
             }
 
-            foreach (int i in processlist)
-            {
-                lbToBeProcessed.Items.Add(i);
-            }
-            
+            this.FillInLabels();
         }
 
+        //This method created only one label and takes a request number as parameter
         private void CreateLabel(int number)
         {
             int height = trbViewprocess.Height;
             Point loc = trbViewprocess.Location;
             int a = loc.X + 50;
             int tickfreq = height / 100;
+            int b = (loc.Y + height) - (tickfreq * number) - 20;
 
             l = new Label();
-                int b = (loc.Y + height) - (tickfreq * number) - 20;
-
-                l.Location = new Point(a, b);
-                l.Text = number.ToString();
-                l.Font = new Font("Arial", 8);
-                l.Padding = new Padding(0, 0, 0, 0);
-                labels.Add(l);
-                this.Controls.Add(l);
+            l.Location = new Point(a, b);
+            l.Text = number.ToString();
+            l.Font = new Font("Arial", 8);
+            l.Padding = new Padding(0, 0, 0, 0);
+            labels.Add(l);
+            this.Controls.Add(l);
         }
+
+        //This method puts on the screen all labels corresponding to the requests
         private void FillInLabels()
         {
             foreach (int i in processlist)
@@ -68,21 +65,15 @@ namespace Week1StrategyPattern
         }
         private void btRun_Click(object sender, EventArgs e)
         {
-            this.FillInLabels();
             trackbartimer.Start();
-
         }
 
         private void btStop_Click(object sender, EventArgs e)
         {
-            
-
+            trackbartimer.Stop();
         }
 
-        private void trbViewprocess_Scroll(object sender, EventArgs e)
-        {
-            tbCurrentlyProcessed.Text = trbViewprocess.Value.ToString();
-        }
+        //This method chooses the direction of the trackbar
         private void TrackBarDirection(int currentNumber,int nextNumber)
         {
             if (nextNumber>currentNumber)
@@ -92,42 +83,99 @@ namespace Week1StrategyPattern
         }
 
         private void trackbartimer_Tick(object sender, EventArgs e)
-        {
-            tbCurrentlyProcessed.Text = processlist[0].ToString();
-            TrackBarDirection(trbViewprocess.Value, Convert.ToInt32(tbCurrentlyProcessed.Text));
-            
-
+        { 
             if (rbFirstInFirstOut.Checked)
             {
-                
-                if (lbToBeProcessed.Items[0].ToString() == processlist[0].ToString())
-                    lbToBeProcessed.Items.RemoveAt(0);
+
+                tbCurrentlyProcessed.Text = lfi.Process().ToString();
+                if (trbViewprocess.Value.ToString() == tbCurrentlyProcessed.Text)
+                    lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+
                 for (int i = 0; i < labels.Count; i++)
-                    if (labels[i].Text == processlist[0].ToString())
+                    if (labels[i].Text == tbCurrentlyProcessed.Text)
                     {
                         
                         labels[i].Font = new Font("Arial", 12, FontStyle.Bold);
                         labels[i].ForeColor = Color.Red;
                     }
+                    else
+                    {
+                        labels[i].Font = new Font("Arial", 8);
+                        labels[i].ForeColor = Color.Black;
+                    }
+
                 if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
                 {
-                    processlist = lfi.Process();
+                    
+                    
                     for (int i = 0; i < labels.Count; i++)
                         if (labels[i].Text == trbViewprocess.Value.ToString())
                         {
                             this.Controls.Remove(labels[i]);
                         }
+                    
+                    Random rnd = new Random();
+                    processlist.Add(rnd.Next(0, 100));
+                    processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
                     CreateLabel(processlist[processlist.Count - 1]);
                     lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
-                    //this.FillInLabels();
                 }
             }
+            else
+                if(rbSeekTime.Checked)
+                {
+                    fi = new ShortSeekTime(processlist,trbViewprocess.Value);
+                    lfi = new ReqListFIFO(fi);
+
+                    tbCurrentlyProcessed.Text = lfi.Process().ToString();
+                    if (trbViewprocess.Value.ToString() == tbCurrentlyProcessed.Text)
+                        lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+
+                    for (int i = 0; i < labels.Count; i++)
+                        if (labels[i].Text == tbCurrentlyProcessed.Text)
+                        {
+
+                            labels[i].Font = new Font("Arial", 12, FontStyle.Bold);
+                            labels[i].ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            labels[i].Font = new Font("Arial", 8);
+                            labels[i].ForeColor = Color.Black;
+                        }
+
+                    
+                    if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
+                    {
+
+                        for (int i = 0; i < labels.Count; i++)
+                            if (labels[i].Text == trbViewprocess.Value.ToString())
+                            {
+                                this.Controls.Remove(labels[i]);
+                            }
+
+                        Random rnd = new Random();
+                        processlist.Add(rnd.Next(0, 100));
+
+                        processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+                        CreateLabel(processlist[processlist.Count - 1]);
+                        lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
+                    }
+                }
+
+
+        TrackBarDirection(trbViewprocess.Value, Convert.ToInt32(tbCurrentlyProcessed.Text));
+        }
+
+        private void rbSeekTime_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
 
         private void rbFirstInFirstOut_CheckedChanged(object sender, EventArgs e)
         {
-
+            fi = new FirstInFirstOut(processlist);
+            lfi = new ReqListFIFO(fi);
         }
     }
 }

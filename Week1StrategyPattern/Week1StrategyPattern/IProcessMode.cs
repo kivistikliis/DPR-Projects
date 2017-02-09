@@ -8,6 +8,6 @@ namespace Week1StrategyPattern
 {
     interface IProcessMode
     {
-        List<int> ProcessList();
+        int ProcessList();
     }
 }
