@@ -28,6 +28,7 @@ namespace Week1StrategyPattern
             for (int i = 0; i < requests.Count; i++)
                 if (requests[i] > max)
                     max=requests[i];
+
            if(currentValue<max)
                 while (currentValue < max)
                 {

@@ -14,12 +14,10 @@ namespace Week1StrategyPattern
             requests = new List<int>();
             requests = req;
         }
-        public List<int> ProcessList()
+        public int ProcessList()
         {
-            requests.RemoveAt(0);
-            Random rnd = new Random();
-            requests.Add(rnd.Next(0, 100));
-            return requests;
+            int numberToBeDeleted = requests[0];
+            return numberToBeDeleted;
         }
     }
 }

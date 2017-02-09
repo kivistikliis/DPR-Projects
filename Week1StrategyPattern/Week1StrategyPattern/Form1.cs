@@ -88,8 +88,7 @@ namespace Week1StrategyPattern
             {
 
                 tbCurrentlyProcessed.Text = lfi.Process().ToString();
-                if (trbViewprocess.Value.ToString() == tbCurrentlyProcessed.Text)
-                    lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+                lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
 
                 for (int i = 0; i < labels.Count; i++)
                     if (labels[i].Text == tbCurrentlyProcessed.Text)
@@ -106,8 +105,6 @@ namespace Week1StrategyPattern
 
                 if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
                 {
-                    
-                    
                     for (int i = 0; i < labels.Count; i++)
                         if (labels[i].Text == trbViewprocess.Value.ToString())
                         {
@@ -116,7 +113,9 @@ namespace Week1StrategyPattern
                     
                     Random rnd = new Random();
                     processlist.Add(rnd.Next(0, 100));
+
                     processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+
                     CreateLabel(processlist[processlist.Count - 1]);
                     lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
                 }
@@ -128,8 +127,7 @@ namespace Week1StrategyPattern
                     lfi = new ReqListFIFO(fi);
 
                     tbCurrentlyProcessed.Text = lfi.Process().ToString();
-                    if (trbViewprocess.Value.ToString() == tbCurrentlyProcessed.Text)
-                        lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+                    lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
 
                     for (int i = 0; i < labels.Count; i++)
                         if (labels[i].Text == tbCurrentlyProcessed.Text)
@@ -158,10 +156,13 @@ namespace Week1StrategyPattern
                         processlist.Add(rnd.Next(0, 100));
 
                         processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+
                         CreateLabel(processlist[processlist.Count - 1]);
                         lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
                     }
                 }
+                else
+                    
 
 
         TrackBarDirection(trbViewprocess.Value, Convert.ToInt32(tbCurrentlyProcessed.Text));
