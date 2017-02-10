@@ -13,10 +13,10 @@ namespace Week1StrategyPattern
     public partial class Form1 : Form
     {
         //A list of requests, list of the labels that appear dinamically on the form and a label variable for further usage
-        List<int> processlist;
-        List<Label> labels;
-        private Label l;
-        bool checkDirectionForScan;
+        List<int> processlist; //list of requests
+        List<Label> labels; // store list of labels to display next to trackbar
+        private Label l; //to create a label dynamically
+        bool checkDirectionForScan; //true if trackbar goes up, false if trackbar goes down
 
         IProcessMode imode;
         RequestList reqlist;
@@ -26,11 +26,10 @@ namespace Week1StrategyPattern
 
             checkDirectionForScan = true;
             processlist = new List<int>();
-
             labels = new List<Label>();
-            Random r = new Random();
 
-            for (int i = 0; i < 15; i++)
+            Random r = new Random();
+            for (int i = 0; i < 15; i++) //populate list
             {
                 processlist.Add(r.Next(0, 100));
                 lbToBeProcessed.Items.Add(processlist[processlist.Count-1]);
@@ -44,7 +43,7 @@ namespace Week1StrategyPattern
             
         }
 
-        //This method created only one label and takes a request number as parameter
+        //This method creates only one label and takes a request number as parameter
         private void CreateLabel(int number)
         {
             int height = trbViewprocess.Height;
@@ -73,6 +72,8 @@ namespace Week1StrategyPattern
         private void btRun_Click(object sender, EventArgs e)
         {
             trackbartimer.Start();
+            btStop.Enabled = true;
+            numTimer.Value=trackbartimer.Interval;
         }
 
         private void btStop_Click(object sender, EventArgs e)
@@ -80,32 +81,9 @@ namespace Week1StrategyPattern
             trackbartimer.Stop();
         }
 
-        //This method chooses the direction of the trackbar
-        private void TrackBarDirection(int currentNumber,int nextNumber)
-        {
-            if (imode is ModeScan)
-            {
-                if (checkDirectionForScan)
-                {
-                    trbViewprocess.Value++;
-                }
-                else
-                {
-                    trbViewprocess.Value--;
-                }
-            }
-            else
-            {
-                if (nextNumber >= currentNumber)
-                {
-                    trbViewprocess.Value++;
-                }
-                else
-                    trbViewprocess.Value--;
-            }
-       
-        }
-
+      
+        //This method controls labels: changes color or removes a label.
+        //It also controls listbox activity and populates list with a random number after processing of one
         private void ControlLabels()
         {
             tbCurrentlyProcessed.Text = reqlist.Process().ToString();
@@ -143,23 +121,32 @@ namespace Week1StrategyPattern
         }
 
         private void trackbartimer_Tick(object sender, EventArgs e)
-        { 
+        {
+
             if (rbFirstInFirstOut.Checked)
             {
                 rbFirstInFirstOut_CheckedChanged(sender, e);
             }
-            else if(rbSeekTime.Checked)
+            else if (rbSeekTime.Checked)
             {
-                rbSeekTime_CheckedChanged(sender, e);                 
+                rbSeekTime_CheckedChanged(sender, e);
             }
-            else if(rbScan.Checked)
+            else if (rbScan.Checked)
             {
                 rbScan_CheckedChanged(sender, e);
             }
-
+            else if (rbCScan.Checked)
+            {
+                rbCScan_CheckedChanged(sender, e);
+            }
+            else if (rbCLook.Checked)
+            {
+                rbCLook_CheckedChanged(sender, e);
+            }
 
             ControlLabels();
-            TrackBarDirection(trbViewprocess.Value, Convert.ToInt32(tbCurrentlyProcessed.Text));
+            trbViewprocess.Value = reqlist.processmode.GetTrackBarValue(trbViewprocess.Value, trbViewprocess.Maximum, Convert.ToInt32(tbCurrentlyProcessed.Text), checkDirectionForScan);
+
         }
 
         private void rbSeekTime_CheckedChanged(object sender, EventArgs e)
@@ -167,7 +154,6 @@ namespace Week1StrategyPattern
             imode = new ModeShortSeekTime(processlist, trbViewprocess.Value);
             reqlist = new ReqListCurrent(imode);
             btRun.Enabled = true;
-            btStop.Enabled = true;
         }
 
         private void rbFirstInFirstOut_CheckedChanged(object sender, EventArgs e)
@@ -175,7 +161,6 @@ namespace Week1StrategyPattern
             imode = new ModeFirstInFirstOut(processlist);
             reqlist = new ReqListCurrent(imode);
             btRun.Enabled = true;
-            btStop.Enabled = true;
         }
 
         private void rbScan_CheckedChanged(object sender, EventArgs e)
@@ -192,7 +177,27 @@ namespace Week1StrategyPattern
             imode = new ModeScan(processlist, trbViewprocess.Value, checkDirectionForScan);
             reqlist = new ReqListCurrent(imode);
             btRun.Enabled = true;
-            btStop.Enabled = true;
         }
+
+        private void rbCScan_CheckedChanged(object sender, EventArgs e)
+        {
+            imode = new ModeCScan(processlist, trbViewprocess.Value);
+            reqlist = new ReqListCurrent(imode);
+            btRun.Enabled = true;
+        }
+
+        private void rbCLook_CheckedChanged(object sender, EventArgs e)
+        {
+            imode = new ModeCLook(processlist, trbViewprocess.Value);
+            reqlist = new ReqListCurrent(imode);
+            btRun.Enabled = true;
+        }
+
+        private void btSetTimer_Click(object sender, EventArgs e)
+        {
+            trackbartimer.Interval = Convert.ToInt32(numTimer.Value);
+        }
+
+       
     }
 }

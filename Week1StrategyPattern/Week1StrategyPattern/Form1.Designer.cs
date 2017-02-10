@@ -38,7 +38,13 @@
             this.rbSeekTime = new System.Windows.Forms.RadioButton();
             this.rbScan = new System.Windows.Forms.RadioButton();
             this.trackbartimer = new System.Windows.Forms.Timer(this.components);
+            this.rbCScan = new System.Windows.Forms.RadioButton();
+            this.rbCLook = new System.Windows.Forms.RadioButton();
+            this.numTimer = new System.Windows.Forms.NumericUpDown();
+            this.lbSetTimer = new System.Windows.Forms.Label();
+            this.btSetTimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trbViewprocess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimer)).BeginInit();
             this.SuspendLayout();
             // 
             // trbViewprocess
@@ -69,7 +75,7 @@
             // 
             // btRun
             // 
-            this.btRun.Location = new System.Drawing.Point(154, 154);
+            this.btRun.Location = new System.Drawing.Point(154, 184);
             this.btRun.Name = "btRun";
             this.btRun.Size = new System.Drawing.Size(75, 23);
             this.btRun.TabIndex = 3;
@@ -79,7 +85,7 @@
             // 
             // btStop
             // 
-            this.btStop.Location = new System.Drawing.Point(154, 183);
+            this.btStop.Location = new System.Drawing.Point(154, 213);
             this.btStop.Name = "btStop";
             this.btStop.Size = new System.Drawing.Size(75, 23);
             this.btStop.TabIndex = 4;
@@ -125,14 +131,74 @@
             // 
             // trackbartimer
             // 
-            this.trackbartimer.Interval = 10;
+            this.trackbartimer.Interval = 20;
             this.trackbartimer.Tick += new System.EventHandler(this.trackbartimer_Tick);
+            // 
+            // rbCScan
+            // 
+            this.rbCScan.AutoSize = true;
+            this.rbCScan.Location = new System.Drawing.Point(155, 131);
+            this.rbCScan.Name = "rbCScan";
+            this.rbCScan.Size = new System.Drawing.Size(60, 17);
+            this.rbCScan.TabIndex = 8;
+            this.rbCScan.TabStop = true;
+            this.rbCScan.Text = "C-Scan";
+            this.rbCScan.UseVisualStyleBackColor = true;
+            this.rbCScan.CheckedChanged += new System.EventHandler(this.rbCScan_CheckedChanged);
+            // 
+            // rbCLook
+            // 
+            this.rbCLook.AutoSize = true;
+            this.rbCLook.Location = new System.Drawing.Point(154, 155);
+            this.rbCLook.Name = "rbCLook";
+            this.rbCLook.Size = new System.Drawing.Size(59, 17);
+            this.rbCLook.TabIndex = 9;
+            this.rbCLook.TabStop = true;
+            this.rbCLook.Text = "C-Look";
+            this.rbCLook.UseVisualStyleBackColor = true;
+            this.rbCLook.CheckedChanged += new System.EventHandler(this.rbCLook_CheckedChanged);
+            // 
+            // numTimer
+            // 
+            this.numTimer.Location = new System.Drawing.Point(155, 278);
+            this.numTimer.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.numTimer.Name = "numTimer";
+            this.numTimer.Size = new System.Drawing.Size(74, 20);
+            this.numTimer.TabIndex = 10;
+            // 
+            // lbSetTimer
+            // 
+            this.lbSetTimer.AutoSize = true;
+            this.lbSetTimer.Location = new System.Drawing.Point(154, 259);
+            this.lbSetTimer.Name = "lbSetTimer";
+            this.lbSetTimer.Size = new System.Drawing.Size(111, 13);
+            this.lbSetTimer.TabIndex = 11;
+            this.lbSetTimer.Text = "Timer tick: (max 2000)";
+            // 
+            // btSetTimer
+            // 
+            this.btSetTimer.Location = new System.Drawing.Point(154, 305);
+            this.btSetTimer.Name = "btSetTimer";
+            this.btSetTimer.Size = new System.Drawing.Size(75, 23);
+            this.btSetTimer.TabIndex = 12;
+            this.btSetTimer.Text = "Set Timer";
+            this.btSetTimer.UseVisualStyleBackColor = true;
+            this.btSetTimer.Click += new System.EventHandler(this.btSetTimer_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(293, 459);
+            this.Controls.Add(this.btSetTimer);
+            this.Controls.Add(this.lbSetTimer);
+            this.Controls.Add(this.numTimer);
+            this.Controls.Add(this.rbCLook);
+            this.Controls.Add(this.rbCScan);
             this.Controls.Add(this.rbScan);
             this.Controls.Add(this.rbSeekTime);
             this.Controls.Add(this.rbFirstInFirstOut);
@@ -144,6 +210,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.trbViewprocess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +227,11 @@
         private System.Windows.Forms.RadioButton rbSeekTime;
         private System.Windows.Forms.RadioButton rbScan;
         private System.Windows.Forms.Timer trackbartimer;
+        private System.Windows.Forms.RadioButton rbCScan;
+        private System.Windows.Forms.RadioButton rbCLook;
+        private System.Windows.Forms.NumericUpDown numTimer;
+        private System.Windows.Forms.Label lbSetTimer;
+        private System.Windows.Forms.Button btSetTimer;
     }
 }
 

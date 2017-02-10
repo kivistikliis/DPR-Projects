@@ -10,9 +10,12 @@ namespace Week1StrategyPattern
     {
         public IProcessMode processmode;        
 
+        //This method processes one request, returns int as the number to be removed
         public virtual int Process()
         {
             return processmode.ProcessList();
         }
+
+        
     }
 }
