@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class ReqListFIFO:RequestList
+    class ReqListCurrent:RequestList
     {
-        public ReqListFIFO(IProcessMode mode)
+        public ReqListCurrent(IProcessMode mode)
         {
             processmode = mode;
         }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    public class ShortSeekTime: IProcessMode
+    public class ModeShortSeekTime: IProcessMode
     {
         //List of requests and the current value of the trackbar, as we need it to find the closest number in our list to the trackbar value
         public List<int> requests;
         public int currentValue;
 
-        public ShortSeekTime(List<int> req, int currentTrbValue)
+        public ModeShortSeekTime(List<int> req, int currentTrbValue)
         {
             requests = req;
             currentValue = currentTrbValue;

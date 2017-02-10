@@ -16,13 +16,15 @@ namespace Week1StrategyPattern
         List<int> processlist;
         List<Label> labels;
         private Label l;
+        bool checkDirectionForScan;
 
-        IProcessMode fi;
-        RequestList lfi;
+        IProcessMode imode;
+        RequestList reqlist;
         public Form1()
         {
             InitializeComponent();
-            
+
+            checkDirectionForScan = true;
             processlist = new List<int>();
 
             labels = new List<Label>();
@@ -35,6 +37,11 @@ namespace Week1StrategyPattern
             }
 
             this.FillInLabels();
+
+            btRun.Enabled = false;
+            btStop.Enabled = false;
+
+            
         }
 
         //This method created only one label and takes a request number as parameter
@@ -49,7 +56,7 @@ namespace Week1StrategyPattern
             l = new Label();
             l.Location = new Point(a, b);
             l.Text = number.ToString();
-            l.Font = new Font("Arial", 8);
+            l.Font = new Font("Arial", 7);
             l.Padding = new Padding(0, 0, 0, 0);
             labels.Add(l);
             this.Controls.Add(l);
@@ -76,107 +83,116 @@ namespace Week1StrategyPattern
         //This method chooses the direction of the trackbar
         private void TrackBarDirection(int currentNumber,int nextNumber)
         {
-            if (nextNumber>currentNumber)
-                trbViewprocess.Value++;
+            if (imode is ModeScan)
+            {
+                if (checkDirectionForScan)
+                {
+                    trbViewprocess.Value++;
+                }
+                else
+                {
+                    trbViewprocess.Value--;
+                }
+            }
             else
-                trbViewprocess.Value--;
+            {
+                if (nextNumber >= currentNumber)
+                {
+                    trbViewprocess.Value++;
+                }
+                else
+                    trbViewprocess.Value--;
+            }
+       
+        }
+
+        private void ControlLabels()
+        {
+            tbCurrentlyProcessed.Text = reqlist.Process().ToString();
+            lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+
+            for (int i = 0; i < labels.Count; i++)
+                if (labels[i].Text == tbCurrentlyProcessed.Text)
+                {
+
+                    labels[i].Font = new Font("Arial", 10, FontStyle.Bold);
+                    labels[i].ForeColor = Color.Red;
+                }
+                else
+                {
+                    labels[i].Font = new Font("Arial", 8);
+                    labels[i].ForeColor = Color.Black;
+                }
+
+            if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
+            {
+                for (int i = 0; i < labels.Count; i++)
+                    if (labels[i].Text == trbViewprocess.Value.ToString())
+                    {
+                        this.Controls.Remove(labels[i]);
+                    }
+
+                Random rnd = new Random();
+                processlist.Add(rnd.Next(0, 100));
+
+                processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+
+                CreateLabel(processlist[processlist.Count - 1]);
+                lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
+            }
         }
 
         private void trackbartimer_Tick(object sender, EventArgs e)
         { 
             if (rbFirstInFirstOut.Checked)
             {
-
-                tbCurrentlyProcessed.Text = lfi.Process().ToString();
-                lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
-
-                for (int i = 0; i < labels.Count; i++)
-                    if (labels[i].Text == tbCurrentlyProcessed.Text)
-                    {
-                        
-                        labels[i].Font = new Font("Arial", 12, FontStyle.Bold);
-                        labels[i].ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        labels[i].Font = new Font("Arial", 8);
-                        labels[i].ForeColor = Color.Black;
-                    }
-
-                if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
-                {
-                    for (int i = 0; i < labels.Count; i++)
-                        if (labels[i].Text == trbViewprocess.Value.ToString())
-                        {
-                            this.Controls.Remove(labels[i]);
-                        }
-                    
-                    Random rnd = new Random();
-                    processlist.Add(rnd.Next(0, 100));
-
-                    processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
-
-                    CreateLabel(processlist[processlist.Count - 1]);
-                    lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
-                }
+                rbFirstInFirstOut_CheckedChanged(sender, e);
             }
-            else
-                if(rbSeekTime.Checked)
-                {
-                    fi = new ShortSeekTime(processlist,trbViewprocess.Value);
-                    lfi = new ReqListFIFO(fi);
-
-                    tbCurrentlyProcessed.Text = lfi.Process().ToString();
-                    lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
-
-                    for (int i = 0; i < labels.Count; i++)
-                        if (labels[i].Text == tbCurrentlyProcessed.Text)
-                        {
-
-                            labels[i].Font = new Font("Arial", 12, FontStyle.Bold);
-                            labels[i].ForeColor = Color.Red;
-                        }
-                        else
-                        {
-                            labels[i].Font = new Font("Arial", 8);
-                            labels[i].ForeColor = Color.Black;
-                        }
-
-                    
-                    if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
-                    {
-
-                        for (int i = 0; i < labels.Count; i++)
-                            if (labels[i].Text == trbViewprocess.Value.ToString())
-                            {
-                                this.Controls.Remove(labels[i]);
-                            }
-
-                        Random rnd = new Random();
-                        processlist.Add(rnd.Next(0, 100));
-
-                        processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
-
-                        CreateLabel(processlist[processlist.Count - 1]);
-                        lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
-                    }
-                }
-                else
-                    
+            else if(rbSeekTime.Checked)
+            {
+                rbSeekTime_CheckedChanged(sender, e);                 
+            }
+            else if(rbScan.Checked)
+            {
+                rbScan_CheckedChanged(sender, e);
+            }
 
 
-        TrackBarDirection(trbViewprocess.Value, Convert.ToInt32(tbCurrentlyProcessed.Text));
+            ControlLabels();
+            TrackBarDirection(trbViewprocess.Value, Convert.ToInt32(tbCurrentlyProcessed.Text));
         }
 
         private void rbSeekTime_CheckedChanged(object sender, EventArgs e)
         {
-
+            imode = new ModeShortSeekTime(processlist, trbViewprocess.Value);
+            reqlist = new ReqListCurrent(imode);
+            btRun.Enabled = true;
+            btStop.Enabled = true;
         }
 
         private void rbFirstInFirstOut_CheckedChanged(object sender, EventArgs e)
         {
-            fi = new FirstInFirstOut(processlist);
-            lfi = new ReqListFIFO(fi);
+            imode = new ModeFirstInFirstOut(processlist);
+            reqlist = new ReqListCurrent(imode);
+            btRun.Enabled = true;
+            btStop.Enabled = true;
+        }
+
+        private void rbScan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (trbViewprocess.Value == trbViewprocess.Minimum)
+            {
+                checkDirectionForScan = true;
+            }
+            else if (trbViewprocess.Value == trbViewprocess.Maximum)
+            {
+                checkDirectionForScan = false;
+            }
+
+            imode = new ModeScan(processlist, trbViewprocess.Value, checkDirectionForScan);
+            reqlist = new ReqListCurrent(imode);
+            btRun.Enabled = true;
+            btStop.Enabled = true;
         }
     }
 }

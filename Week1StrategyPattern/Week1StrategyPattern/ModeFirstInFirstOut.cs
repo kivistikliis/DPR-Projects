@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class FirstInFirstOut:IProcessMode
+    class ModeFirstInFirstOut:IProcessMode
     {
         public List<int> requests;
-        public FirstInFirstOut(List<int> req)
+        public ModeFirstInFirstOut(List<int> req)
         {
             requests = new List<int>();
             requests = req;
