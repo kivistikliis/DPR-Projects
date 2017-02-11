@@ -13,13 +13,13 @@ namespace Week1StrategyPattern
     public partial class Form1 : Form
     {
         //A list of requests, list of the labels that appear dinamically on the form and a label variable for further usage
-        List<int> processlist; //list of requests
-        List<Label> labels; // store list of labels to display next to trackbar
+        private List<int> processlist; //list of requests
+        private List<Label> labels; // store list of labels to display next to trackbar
         private Label l; //to create a label dynamically
-        bool checkDirectionForScan; //true if trackbar goes up, false if trackbar goes down
+        private bool checkDirectionForScan; //true if trackbar goes up, false if trackbar goes down
 
-        IProcessMode imode;
-        RequestList reqlist;
+        private IProcessMode imode;
+        private RequestList reqlist;
         public Form1()
         {
             InitializeComponent();
