@@ -29,7 +29,7 @@ namespace Week1StrategyPattern
                 }
                 if (currentValue == -1)
                 {
-                    currentValue = 100;
+                    currentValue = requests.Max();
                     return currentValue;
                 }
                 return 0;

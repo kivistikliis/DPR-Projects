@@ -83,5 +83,57 @@ namespace Week1StrategyPattern
             processlist.Remove(34);
 
         }
+        [TestMethod]
+        public void CScan()
+        {
+            //Testing if the algorithm works good and the first element is the output
+            List<int> processlist = new List<int>(new int[] { 5, 56, 12, 45, 87, 54, 67, 14, 34 });
+            IProcessMode imode = new ModeCScan(processlist, 25);
+            RequestList reqlist = new ReqListCurrent(imode);
+
+            Assert.AreEqual(14, reqlist.Process());
+            processlist.Remove(14);
+
+            
+            Assert.AreEqual(12, reqlist.Process());
+            processlist.Remove(12);
+
+            
+            Assert.AreEqual(5, reqlist.Process());
+            processlist.Remove(5);
+
+            Assert.AreEqual(4, reqlist.processmode.GetTrackBarValue(5, 100, 87, false));
+            Assert.AreEqual(3, reqlist.processmode.GetTrackBarValue(4, 100, 87, false));
+
+            Assert.AreEqual(87, reqlist.Process());     
+            processlist.Remove(87);
+        }
+        [TestMethod]
+        public void CLook()
+        {
+            //Testing if the algorithm works good and the first element is the output
+            List<int> processlist = new List<int>(new int[] { 5, 56, 12, 45, 87, 54, 67, 14, 34 });
+            IProcessMode imode = new ModeCLook(processlist, 30);
+            RequestList reqlist = new ReqListCurrent(imode);
+
+
+            
+            Assert.AreEqual(14, reqlist.Process());
+            processlist.Remove(14);
+
+            Assert.AreEqual(12, reqlist.Process());
+            processlist.Remove(12);
+
+            Assert.AreEqual(5, reqlist.Process());
+            processlist.Remove(5);
+
+            Assert.AreEqual(4, reqlist.processmode.GetTrackBarValue(5,100,87,false));
+
+            Assert.AreEqual(87, reqlist.Process());
+
+            Assert.AreEqual(87, reqlist.processmode.GetTrackBarValue(5, 100, 87, false));
+            processlist.Remove(87);
+
+        }
     }
 }
