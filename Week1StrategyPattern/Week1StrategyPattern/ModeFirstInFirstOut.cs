@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class ModeFirstInFirstOut:IProcessMode
+    public class ModeFirstInFirstOut:IProcessMode
     {
         //list of requests
         public List<int> requests;

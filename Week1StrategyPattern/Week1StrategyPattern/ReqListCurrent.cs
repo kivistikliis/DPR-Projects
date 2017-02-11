@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class ReqListCurrent:RequestList
+    public class ReqListCurrent:RequestList
     {
         public ReqListCurrent(IProcessMode mode)
         {

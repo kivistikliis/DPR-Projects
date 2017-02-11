@@ -16,3 +16,12 @@ C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1St
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.pdb
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csprojResolveAssemblyReference.cache
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csprojResolveAssemblyReference.cache
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.exe.config
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.exe
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.pdb
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.exe
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.pdb
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csprojResolveAssemblyReference.cache
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.Form1.resources
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.Properties.Resources.resources
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csproj.GenerateResource.Cache

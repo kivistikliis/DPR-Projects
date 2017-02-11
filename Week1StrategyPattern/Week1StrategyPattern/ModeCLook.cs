@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class ModeCLook: IProcessMode
+    public class ModeCLook: IProcessMode
     {
         public List<int> requests;
         public int currentValue;

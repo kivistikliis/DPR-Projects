@@ -1,0 +1,7 @@
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\obj\Debug\StrategyPatternTest.csprojResolveAssemblyReference.cache
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\bin\Debug\StrategyPatternTest.dll
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\bin\Debug\StrategyPatternTest.pdb
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\obj\Debug\StrategyPatternTest.dll
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\obj\Debug\StrategyPatternTest.pdb
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\bin\Debug\Week1StrategyPattern.exe
+E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\StrategyPatternTest\bin\Debug\Week1StrategyPattern.pdb

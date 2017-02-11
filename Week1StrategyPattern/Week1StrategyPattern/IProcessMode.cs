@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    interface IProcessMode
+    public interface IProcessMode
     {
 
         int ProcessList(); // returns int that will be removed from the list

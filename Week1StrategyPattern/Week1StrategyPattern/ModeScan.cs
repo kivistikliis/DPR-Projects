@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class ModeScan:IProcessMode
+    public class ModeScan:IProcessMode
     {
         //List of requests,current value of the trackbar, bool that indicates trackbar direction (true goes up, false goes down)
         public List<int> requests;

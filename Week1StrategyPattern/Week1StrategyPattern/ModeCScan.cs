@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    class ModeCScan: IProcessMode
+    public class ModeCScan: IProcessMode
     {
         //List of requests and trackbar current value
         public List<int> requests;
