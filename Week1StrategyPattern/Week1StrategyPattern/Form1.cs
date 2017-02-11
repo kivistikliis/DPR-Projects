@@ -29,7 +29,7 @@ namespace Week1StrategyPattern
             labels = new List<Label>();
 
             Random r = new Random();
-            for (int i = 0; i < 15; i++) //populate list
+            for (int i = 0; i < 25; i++) //populate list
             {
                 processlist.Add(r.Next(0, 100));
                 lbToBeProcessed.Items.Add(processlist[processlist.Count-1]);
@@ -37,6 +37,7 @@ namespace Week1StrategyPattern
 
             this.FillInLabels();
 
+            numTimer.Value = trackbartimer.Interval;
             btRun.Enabled = false;
             btStop.Enabled = false;
 
@@ -55,10 +56,15 @@ namespace Week1StrategyPattern
             l = new Label();
             l.Location = new Point(a, b);
             l.Text = number.ToString();
-            l.Font = new Font("Arial", 7);
+            l.Font = new Font("Arial", 6);
             l.Padding = new Padding(0, 0, 0, 0);
+
+
             labels.Add(l);
             this.Controls.Add(l);
+            
+
+             
         }
 
         //This method puts on the screen all labels corresponding to the requests
@@ -73,7 +79,6 @@ namespace Week1StrategyPattern
         {
             trackbartimer.Start();
             btStop.Enabled = true;
-            numTimer.Value=trackbartimer.Interval;
         }
 
         private void btStop_Click(object sender, EventArgs e)
@@ -87,34 +92,39 @@ namespace Week1StrategyPattern
         private void ControlLabels()
         {
             tbCurrentlyProcessed.Text = reqlist.Process().ToString();
-            lbToBeProcessed.Items.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+            lbToBeProcessed.Items.Remove(reqlist.Process());
 
             for (int i = 0; i < labels.Count; i++)
                 if (labels[i].Text == tbCurrentlyProcessed.Text)
                 {
 
-                    labels[i].Font = new Font("Arial", 10, FontStyle.Bold);
+                    labels[i].Font = new Font("Arial", 8, FontStyle.Bold);
                     labels[i].ForeColor = Color.Red;
                 }
                 else
                 {
-                    labels[i].Font = new Font("Arial", 8);
+                    labels[i].Font = new Font("Arial", 6);
                     labels[i].ForeColor = Color.Black;
                 }
 
             if (trbViewprocess.Value == Convert.ToInt32(tbCurrentlyProcessed.Text))
             {
+                Random rnd = new Random();
+                int toAdd = rnd.Next(0, 100);
+                while (processlist.Contains(toAdd))
+                {
+                    toAdd = rnd.Next(0, 100);
+                }
+                processlist.Add(toAdd);
+
                 for (int i = 0; i < labels.Count; i++)
-                    if (labels[i].Text == trbViewprocess.Value.ToString())
+                {
+                    if (trbViewprocess.Value == Convert.ToInt32(labels[i].Text))
                     {
                         this.Controls.Remove(labels[i]);
+                        processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
                     }
-
-                Random rnd = new Random();
-                processlist.Add(rnd.Next(0, 100));
-
-                processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
-
+                }
                 CreateLabel(processlist[processlist.Count - 1]);
                 lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
             }
@@ -122,26 +132,23 @@ namespace Week1StrategyPattern
 
         private void trackbartimer_Tick(object sender, EventArgs e)
         {
+            
 
-            if (rbFirstInFirstOut.Checked)
+            if (trbViewprocess.Value == trbViewprocess.Minimum)
             {
-                rbFirstInFirstOut_CheckedChanged(sender, e);
+                checkDirectionForScan = true;
+                if (imode is ModeScan)
+                {
+                    ((ModeScan)imode).checkdirection = checkDirectionForScan;
+                }
             }
-            else if (rbSeekTime.Checked)
+            else if (trbViewprocess.Value == trbViewprocess.Maximum)
             {
-                rbSeekTime_CheckedChanged(sender, e);
-            }
-            else if (rbScan.Checked)
-            {
-                rbScan_CheckedChanged(sender, e);
-            }
-            else if (rbCScan.Checked)
-            {
-                rbCScan_CheckedChanged(sender, e);
-            }
-            else if (rbCLook.Checked)
-            {
-                rbCLook_CheckedChanged(sender, e);
+                checkDirectionForScan = false;
+                if (imode is ModeScan)
+                {
+                    ((ModeScan)imode).checkdirection = checkDirectionForScan;
+                }
             }
 
             ControlLabels();
@@ -165,15 +172,6 @@ namespace Week1StrategyPattern
 
         private void rbScan_CheckedChanged(object sender, EventArgs e)
         {
-            if (trbViewprocess.Value == trbViewprocess.Minimum)
-            {
-                checkDirectionForScan = true;
-            }
-            else if (trbViewprocess.Value == trbViewprocess.Maximum)
-            {
-                checkDirectionForScan = false;
-            }
-
             imode = new ModeScan(processlist, trbViewprocess.Value, checkDirectionForScan);
             reqlist = new ReqListCurrent(imode);
             btRun.Enabled = true;

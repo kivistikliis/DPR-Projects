@@ -24,6 +24,8 @@ namespace Week1StrategyPattern
         //This method moves heads from nearest end to the bottom, but starts from maximum value of list and ends in minimum value of the list
         public int ProcessList()
         {
+            maximumOfList = requests.Max();
+            minimumOfList = requests.Min();
                 while (currentValue >= minimumOfList)
                 {
                     if (requests.Contains(currentValue))

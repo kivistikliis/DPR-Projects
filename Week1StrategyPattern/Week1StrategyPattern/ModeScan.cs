@@ -11,7 +11,7 @@ namespace Week1StrategyPattern
         //List of requests,current value of the trackbar, bool that indicates trackbar direction (true goes up, false goes down)
         public List<int> requests;
         public int currentValue;
-        bool checkdirection;
+        public bool checkdirection;
 
         public ModeScan(List<int> req, int currentTrbValue, bool dir)
         {
@@ -23,21 +23,35 @@ namespace Week1StrategyPattern
         //This method moves trackbar up and down and returns integers in the order of passing them (ascending or descending)
         public int ProcessList()
         {
-            if(checkdirection)
+            int aux=0;
+            
+            if (checkdirection)
+            {
                 while (currentValue <= 100)
                 {
                     if (requests.Contains(currentValue))
-                        return currentValue;
+                    {
+                        aux = currentValue;
+                        break;
+                        
+                    }
                     currentValue++;
                 }
+            }
             else
+            {
                 while (currentValue > -1)
                 {
                     if (requests.Contains(currentValue))
-                        return currentValue;
+                    {
+                        aux = currentValue;
+                        break;
+                        
+                    }
                     currentValue--;
                 }
-            return 0;
+            }
+            return aux;
         }
 
         public int GetTrackBarValue(int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)

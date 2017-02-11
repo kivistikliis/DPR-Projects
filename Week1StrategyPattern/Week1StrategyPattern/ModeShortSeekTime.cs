@@ -30,14 +30,18 @@ namespace Week1StrategyPattern
                 {
                     min = Math.Abs(currentValue - requests[i]);
                     numberToBeDeleted=requests[i];
+
+                    
                 }
+            if (numberToBeDeleted >= currentValue) currentValue++;
+            else currentValue--;
 
             return numberToBeDeleted;
         }
 
         public int GetTrackBarValue(int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
         {
-            if (nextNumber >= currentTrbValue)
+            if (nextNumber > currentTrbValue)
             {
                return ++currentTrbValue;
             }

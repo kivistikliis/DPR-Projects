@@ -63,7 +63,7 @@
             this.lbToBeProcessed.FormattingEnabled = true;
             this.lbToBeProcessed.Location = new System.Drawing.Point(97, 64);
             this.lbToBeProcessed.Name = "lbToBeProcessed";
-            this.lbToBeProcessed.Size = new System.Drawing.Size(51, 264);
+            this.lbToBeProcessed.Size = new System.Drawing.Size(51, 368);
             this.lbToBeProcessed.TabIndex = 1;
             // 
             // tbCurrentlyProcessed
@@ -160,7 +160,7 @@
             // 
             // numTimer
             // 
-            this.numTimer.Location = new System.Drawing.Point(155, 278);
+            this.numTimer.Location = new System.Drawing.Point(155, 302);
             this.numTimer.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -173,7 +173,7 @@
             // lbSetTimer
             // 
             this.lbSetTimer.AutoSize = true;
-            this.lbSetTimer.Location = new System.Drawing.Point(154, 259);
+            this.lbSetTimer.Location = new System.Drawing.Point(154, 283);
             this.lbSetTimer.Name = "lbSetTimer";
             this.lbSetTimer.Size = new System.Drawing.Size(111, 13);
             this.lbSetTimer.TabIndex = 11;
@@ -181,7 +181,7 @@
             // 
             // btSetTimer
             // 
-            this.btSetTimer.Location = new System.Drawing.Point(154, 305);
+            this.btSetTimer.Location = new System.Drawing.Point(154, 329);
             this.btSetTimer.Name = "btSetTimer";
             this.btSetTimer.Size = new System.Drawing.Size(75, 23);
             this.btSetTimer.TabIndex = 12;

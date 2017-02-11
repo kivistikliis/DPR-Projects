@@ -6,4 +6,13 @@ C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\Week1StrategyPattern\Week1S
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.pdb
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.exe
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.pdb
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.Form1.resources
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.Properties.Resources.resources
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csproj.GenerateResource.Cache
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.exe
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.pdb
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.exe.config
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.exe
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.pdb
+C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\GITHUB\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csprojResolveAssemblyReference.cache
 C:\Users\kivistik.liis\Documents\Fontys2016-2017\DPR\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csprojResolveAssemblyReference.cache
