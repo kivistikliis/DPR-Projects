@@ -8,18 +8,10 @@ namespace Week1StrategyPattern
 {
     public class ModeCScan: IProcessMode
     {
-        //List of requests and trackbar current value
-        public List<int> requests;
-        public int currentValue;
 
-        public ModeCScan(List<int> req, int currentTrbValue)
-        {
-            requests = req;
-            currentValue = currentTrbValue;
-        }
 
         //This method moves heads from nearest end to the bottom and returns passing integers for further removal
-        public int ProcessList()
+        public int ProcessList(List<int> requests, int currentValue)
         {
             while (currentValue >= 0)
                 {
@@ -35,7 +27,7 @@ namespace Week1StrategyPattern
                 return 0;
         }
 
-        public int GetTrackBarValue(int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
+        public int GetTrackBarValue(List<int> requests,int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
         {
             if (currentTrbValue == -1)
             {

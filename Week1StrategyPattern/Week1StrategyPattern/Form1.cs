@@ -19,6 +19,12 @@ namespace Week1StrategyPattern
         bool checkDirectionForScan; //true if trackbar goes up, false if trackbar goes down
 
         IProcessMode imode;
+        ModeFirstInFirstOut fifo;
+        ModeShortSeekTime shorty;
+        ModeScan scan;
+        ModeCScan cscan;
+        ModeCLook clook;
+
         RequestList reqlist;
         public Form1()
         {
@@ -27,16 +33,22 @@ namespace Week1StrategyPattern
             checkDirectionForScan = true;
             processlist = new List<int>();
             labels = new List<Label>();
+            reqlist = new RequestList();
 
-            Random r = new Random();
-            for (int i = 0; i < 25; i++) //populate list
+            for (int i = 0; i < reqlist.processlist.Count; i++) //populate list
             {
-                processlist.Add(r.Next(0, 100));
-                lbToBeProcessed.Items.Add(processlist[processlist.Count-1]);
+                lbToBeProcessed.Items.Add(reqlist.processlist[i]);
             }
 
             this.FillInLabels();
+           
 
+            
+            fifo = new ModeFirstInFirstOut();
+            shorty = new ModeShortSeekTime();
+            scan = new ModeScan();
+            cscan = new ModeCScan();
+            clook = new ModeCLook();
             numTimer.Value = trackbartimer.Interval;
             btRun.Enabled = false;
             btStop.Enabled = false;
@@ -70,7 +82,7 @@ namespace Week1StrategyPattern
         //This method puts on the screen all labels corresponding to the requests
         private void FillInLabels()
         {
-            foreach (int i in processlist)
+            foreach (int i in reqlist.processlist)
             {
                 CreateLabel(i);
             }
@@ -91,8 +103,8 @@ namespace Week1StrategyPattern
         //It also controls listbox activity and populates list with a random number after processing of one
         private void ControlLabels()
         {
-            tbCurrentlyProcessed.Text = reqlist.Process().ToString();
-            lbToBeProcessed.Items.Remove(reqlist.Process());
+            tbCurrentlyProcessed.Text = reqlist.Process(trbViewprocess.Value).ToString();
+            lbToBeProcessed.Items.Remove(reqlist.Process(trbViewprocess.Value));
 
             for (int i = 0; i < labels.Count; i++)
                 if (labels[i].Text == tbCurrentlyProcessed.Text)
@@ -111,22 +123,22 @@ namespace Week1StrategyPattern
             {
                 Random rnd = new Random();
                 int toAdd = rnd.Next(0, 100);
-                while (processlist.Contains(toAdd))
+                while (reqlist.processlist.Contains(toAdd))
                 {
                     toAdd = rnd.Next(0, 100);
                 }
-                processlist.Add(toAdd);
+                reqlist.processlist.Add(toAdd);
 
                 for (int i = 0; i < labels.Count; i++)
                 {
                     if (trbViewprocess.Value == Convert.ToInt32(labels[i].Text))
                     {
                         this.Controls.Remove(labels[i]);
-                        processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
+                        reqlist.processlist.Remove(Convert.ToInt32(tbCurrentlyProcessed.Text));
                     }
                 }
-                CreateLabel(processlist[processlist.Count - 1]);
-                lbToBeProcessed.Items.Add(processlist[processlist.Count - 1]);
+                CreateLabel(reqlist.processlist[reqlist.processlist.Count - 1]);
+                lbToBeProcessed.Items.Add(reqlist.processlist[reqlist.processlist.Count - 1]);
             }
         }
 
@@ -152,42 +164,38 @@ namespace Week1StrategyPattern
             }
 
             ControlLabels();
-            trbViewprocess.Value = reqlist.processmode.GetTrackBarValue(trbViewprocess.Value, trbViewprocess.Maximum, Convert.ToInt32(tbCurrentlyProcessed.Text), checkDirectionForScan);
+            trbViewprocess.Value = reqlist.processmode.GetTrackBarValue(reqlist.processlist,trbViewprocess.Value, trbViewprocess.Maximum, Convert.ToInt32(tbCurrentlyProcessed.Text), checkDirectionForScan);
 
         }
 
         private void rbSeekTime_CheckedChanged(object sender, EventArgs e)
         {
-            imode = new ModeShortSeekTime(processlist, trbViewprocess.Value);
-            reqlist = new ReqListCurrent(imode);
+            reqlist.processmode=shorty;
             btRun.Enabled = true;
         }
 
         private void rbFirstInFirstOut_CheckedChanged(object sender, EventArgs e)
         {
-            imode = new ModeFirstInFirstOut(processlist);
-            reqlist = new ReqListCurrent(imode);
+            reqlist.processmode=fifo;
             btRun.Enabled = true;
         }
 
         private void rbScan_CheckedChanged(object sender, EventArgs e)
         {
-            imode = new ModeScan(processlist, trbViewprocess.Value, checkDirectionForScan);
-            reqlist = new ReqListCurrent(imode);
+            scan.checkdirection = checkDirectionForScan;
+            reqlist.processmode = scan;
             btRun.Enabled = true;
         }
 
         private void rbCScan_CheckedChanged(object sender, EventArgs e)
         {
-            imode = new ModeCScan(processlist, trbViewprocess.Value);
-            reqlist = new ReqListCurrent(imode);
+            reqlist.processmode = cscan;
             btRun.Enabled = true;
         }
 
         private void rbCLook_CheckedChanged(object sender, EventArgs e)
         {
-            imode = new ModeCLook(processlist, trbViewprocess.Value);
-            reqlist = new ReqListCurrent(imode);
+            reqlist.processmode = clook;
             btRun.Enabled = true;
         }
 

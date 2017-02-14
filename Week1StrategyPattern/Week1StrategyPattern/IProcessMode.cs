@@ -9,8 +9,8 @@ namespace Week1StrategyPattern
     public interface IProcessMode
     {
 
-        int ProcessList(); // returns int that will be removed from the list
-        int GetTrackBarValue(int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection); //gets new trackbar value, which sets trackbar direction
+        int ProcessList(List<int> requests,int currentValue); // returns int that will be removed from the list
+        int GetTrackBarValue(List<int> requests,int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection); //gets new trackbar value, which sets trackbar direction
        
     }
 }

@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace Week1StrategyPattern
 {
-    public abstract class RequestList
+    public class RequestList
     {
-        public IProcessMode processmode;        
-
-        //This method processes one request, returns int as the number to be removed
-        public virtual int Process()
+        public IProcessMode processmode;
+        public List<int> processlist;
+        public int currentValue;
+        public RequestList()
         {
-            return processmode.ProcessList();
+            processlist = new List<int>();
+
+            Random r = new Random();
+            for (int i = 0; i < 15; i++)
+            {
+                processlist.Add(r.Next(0, 100));
+                
+            }
+        }
+        public int Process(int currentValue)
+        {
+            this.currentValue = currentValue;
+            return processmode.ProcessList(processlist,currentValue);
         }
 
         

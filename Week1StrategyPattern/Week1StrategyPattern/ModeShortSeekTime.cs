@@ -8,19 +8,10 @@ namespace Week1StrategyPattern
 {
     public class ModeShortSeekTime: IProcessMode
     {
-        //List of requests and the current value of the trackbar
-        public List<int> requests;
-        public int currentValue;
-
-        public ModeShortSeekTime(List<int> req, int currentTrbValue)
-        {
-            requests = req;
-            currentValue = currentTrbValue;
-        }
         /*The method is going to find the mini difference between the trackbar value and a number in the request list.
         After finding this min and the number from the list, this number will be returned
          */
-        public int ProcessList()
+        public int ProcessList(List<int> requests, int currentValue)
         {
             int min = 32000;
             int numberToBeDeleted=0;
@@ -39,7 +30,7 @@ namespace Week1StrategyPattern
             return numberToBeDeleted;
         }
 
-        public int GetTrackBarValue(int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
+        public int GetTrackBarValue(List<int> requests, int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
         {
             if (nextNumber > currentTrbValue)
             {

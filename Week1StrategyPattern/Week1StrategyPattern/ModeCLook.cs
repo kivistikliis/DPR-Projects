@@ -8,43 +8,26 @@ namespace Week1StrategyPattern
 {
     public class ModeCLook: IProcessMode
     {
-        public List<int> requests;
-        public int currentValue;
-        public int minimumOfList;
-        public int maximumOfList;
-
-        public ModeCLook(List<int> req, int currentTrbValue)
+        public int ProcessList(List<int> requests, int currentValue)
         {
-            requests = req;
-            currentValue = currentTrbValue;
-            minimumOfList = req.Min();
-            maximumOfList = req.Max();
-        }
-     
-        //This method moves heads from nearest end to the bottom, but starts from maximum value of list and ends in minimum value of the list
-        public int ProcessList()
-        {
-            maximumOfList = requests.Max();
-            minimumOfList = requests.Min();
-                while (currentValue >= minimumOfList)
+                while (currentValue >= requests.Min())
                 {
                     if (requests.Contains(currentValue))
                         return currentValue;
                     currentValue--;
                 }
-                if (currentValue < minimumOfList)
+                if (currentValue < requests.Min())
                 {
-                    currentValue = maximumOfList;
+                    currentValue = requests.Max();
                     return currentValue;
                 }
                 return 0;
         }
-
-        public int GetTrackBarValue(int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
+        public int GetTrackBarValue(List<int> requests,int currentTrbValue, int maxTrbValue, int nextNumber, bool TrbDirection)
         {
-            if (currentTrbValue < minimumOfList)
+            if (currentTrbValue < requests.Min())
             {
-                currentTrbValue = maximumOfList;
+                currentTrbValue = requests.Max();
                 return currentTrbValue;
             }
             return --currentTrbValue;
