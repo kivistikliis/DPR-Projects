@@ -13,12 +13,12 @@ namespace Week1StrategyPattern
     public partial class Form1 : Form
     {
         //A list of requests, list of the labels that appear dinamically on the form and a label variable for further usage
-        List<int> processlist; //list of requests
-        List<Label> labels; // store list of labels to display next to trackbar
+        private List<int> processlist; //list of requests
+        private List<Label> labels; // store list of labels to display next to trackbar
         private Label l; //to create a label dynamically
-        bool checkDirectionForScan; //true if trackbar goes up, false if trackbar goes down
+        private bool checkDirectionForScan; //true if trackbar goes up, false if trackbar goes down
 
-        IProcessMode imode;
+
         ModeFirstInFirstOut fifo;
         ModeShortSeekTime shorty;
         ModeScan scan;
@@ -149,17 +149,17 @@ namespace Week1StrategyPattern
             if (trbViewprocess.Value == trbViewprocess.Minimum)
             {
                 checkDirectionForScan = true;
-                if (imode is ModeScan)
+                if (reqlist.processmode is ModeScan)
                 {
-                    ((ModeScan)imode).checkdirection = checkDirectionForScan;
+                    ((ModeScan)reqlist.processmode).checkdirection = checkDirectionForScan;
                 }
             }
             else if (trbViewprocess.Value == trbViewprocess.Maximum)
             {
                 checkDirectionForScan = false;
-                if (imode is ModeScan)
+                if (reqlist.processmode is ModeScan)
                 {
-                    ((ModeScan)imode).checkdirection = checkDirectionForScan;
+                    ((ModeScan)reqlist.processmode).checkdirection = checkDirectionForScan;
                 }
             }
 

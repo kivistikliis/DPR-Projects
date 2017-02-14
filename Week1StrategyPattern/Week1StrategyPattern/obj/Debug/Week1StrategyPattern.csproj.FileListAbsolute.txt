@@ -21,7 +21,6 @@ E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1Strategy
 E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.pdb
 E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.exe
 E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\bin\Debug\Week1StrategyPattern.pdb
-E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csprojResolveAssemblyReference.cache
 E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.Form1.resources
 E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.Properties.Resources.resources
 E:\Fontys\Design Patterns\Github\DPR-Projects\Week1StrategyPattern\Week1StrategyPattern\obj\Debug\Week1StrategyPattern.csproj.GenerateResource.Cache

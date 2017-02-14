@@ -15,6 +15,7 @@ namespace Week1StrategyPattern
         {
             processlist = new List<int>();
 
+
             Random r = new Random();
             for (int i = 0; i < 15; i++)
             {
@@ -22,7 +23,11 @@ namespace Week1StrategyPattern
                 
             }
         }
+        
+
+        //This method processes one request, returns int as the number to be removed
         public int Process(int currentValue)
+
         {
             this.currentValue = currentValue;
             return processmode.ProcessList(processlist,currentValue);
