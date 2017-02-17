@@ -28,80 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_value = new System.Windows.Forms.TextBox();
-            this.btn_decrease = new System.Windows.Forms.Button();
-            this.tb_changevalue = new System.Windows.Forms.TextBox();
-            this.btn_increase = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.btChangeValue = new System.Windows.Forms.Button();
+            this.lbValue = new System.Windows.Forms.Label();
+            this.numChangeValue = new System.Windows.Forms.NumericUpDown();
+            this.tbCurrentValue = new System.Windows.Forms.TextBox();
+            this.lbAttached = new System.Windows.Forms.Label();
+            this.lbNrOfObservers = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.numChangeValue)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // btChangeValue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Material:";
+            this.btChangeValue.Location = new System.Drawing.Point(141, 21);
+            this.btChangeValue.Name = "btChangeValue";
+            this.btChangeValue.Size = new System.Drawing.Size(130, 23);
+            this.btChangeValue.TabIndex = 7;
+            this.btChangeValue.Text = "Change value";
+            this.btChangeValue.UseVisualStyleBackColor = true;
+            this.btChangeValue.Click += new System.EventHandler(this.btChangeValue_Click);
             // 
-            // tb_value
+            // lbValue
             // 
-            this.tb_value.Enabled = false;
-            this.tb_value.Location = new System.Drawing.Point(145, 22);
-            this.tb_value.Name = "tb_value";
-            this.tb_value.Size = new System.Drawing.Size(100, 26);
-            this.tb_value.TabIndex = 1;
+            this.lbValue.AutoSize = true;
+            this.lbValue.Location = new System.Drawing.Point(17, 60);
+            this.lbValue.Name = "lbValue";
+            this.lbValue.Size = new System.Drawing.Size(73, 13);
+            this.lbValue.TabIndex = 8;
+            this.lbValue.Text = "Current value:";
             // 
-            // btn_decrease
+            // numChangeValue
             // 
-            this.btn_decrease.Location = new System.Drawing.Point(26, 123);
-            this.btn_decrease.Name = "btn_decrease";
-            this.btn_decrease.Size = new System.Drawing.Size(113, 31);
-            this.btn_decrease.TabIndex = 2;
-            this.btn_decrease.Text = "Decrease";
-            this.btn_decrease.UseVisualStyleBackColor = true;
+            this.numChangeValue.Location = new System.Drawing.Point(20, 21);
+            this.numChangeValue.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numChangeValue.Name = "numChangeValue";
+            this.numChangeValue.Size = new System.Drawing.Size(115, 20);
+            this.numChangeValue.TabIndex = 9;
             // 
-            // tb_changevalue
+            // tbCurrentValue
             // 
-            this.tb_changevalue.Location = new System.Drawing.Point(26, 91);
-            this.tb_changevalue.Name = "tb_changevalue";
-            this.tb_changevalue.Size = new System.Drawing.Size(245, 26);
-            this.tb_changevalue.TabIndex = 3;
+            this.tbCurrentValue.Enabled = false;
+            this.tbCurrentValue.Location = new System.Drawing.Point(97, 60);
+            this.tbCurrentValue.Name = "tbCurrentValue";
+            this.tbCurrentValue.Size = new System.Drawing.Size(100, 20);
+            this.tbCurrentValue.TabIndex = 10;
             // 
-            // btn_increase
+            // lbAttached
             // 
-            this.btn_increase.Location = new System.Drawing.Point(163, 123);
-            this.btn_increase.Name = "btn_increase";
-            this.btn_increase.Size = new System.Drawing.Size(108, 31);
-            this.btn_increase.TabIndex = 4;
-            this.btn_increase.Text = "Increase";
-            this.btn_increase.UseVisualStyleBackColor = true;
-            this.btn_increase.Click += new System.EventHandler(this.button2_Click);
+            this.lbAttached.AutoSize = true;
+            this.lbAttached.Location = new System.Drawing.Point(20, 106);
+            this.lbAttached.Name = "lbAttached";
+            this.lbAttached.Size = new System.Drawing.Size(127, 13);
+            this.lbAttached.TabIndex = 11;
+            this.lbAttached.Text = "Nr of attached observers:";
             // 
-            // label2
+            // lbNrOfObservers
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(123, 172);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
+            this.lbNrOfObservers.AutoSize = true;
+            this.lbNrOfObservers.Location = new System.Drawing.Point(154, 106);
+            this.lbNrOfObservers.Name = "lbNrOfObservers";
+            this.lbNrOfObservers.Size = new System.Drawing.Size(13, 13);
+            this.lbNrOfObservers.TabIndex = 12;
+            this.lbNrOfObservers.Text = "0";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 265);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_increase);
-            this.Controls.Add(this.tb_changevalue);
-            this.Controls.Add(this.btn_decrease);
-            this.Controls.Add(this.tb_value);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(283, 203);
+            this.Controls.Add(this.lbNrOfObservers);
+            this.Controls.Add(this.lbAttached);
+            this.Controls.Add(this.tbCurrentValue);
+            this.Controls.Add(this.numChangeValue);
+            this.Controls.Add(this.lbValue);
+            this.Controls.Add(this.btChangeValue);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numChangeValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,12 +123,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_value;
-        private System.Windows.Forms.Button btn_decrease;
-        private System.Windows.Forms.TextBox tb_changevalue;
-        private System.Windows.Forms.Button btn_increase;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btChangeValue;
+        private System.Windows.Forms.Label lbValue;
+        private System.Windows.Forms.NumericUpDown numChangeValue;
+        private System.Windows.Forms.TextBox tbCurrentValue;
+        private System.Windows.Forms.Label lbAttached;
+        private System.Windows.Forms.Label lbNrOfObservers;
+        private System.Windows.Forms.Timer timer1;
+
     }
 }
 
