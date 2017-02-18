@@ -10,7 +10,6 @@ namespace Week2ObserverPattern
     {
         Stock myStock = new Stock();
         public double newvalue;
-        public Form oform;
         
         public Observer(Stock newStock)
         {  
