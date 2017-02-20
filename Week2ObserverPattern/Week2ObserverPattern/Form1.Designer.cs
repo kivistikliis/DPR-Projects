@@ -36,14 +36,17 @@
             this.lbAttached = new System.Windows.Forms.Label();
             this.lbNrOfObservers = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numChangeValue)).BeginInit();
             this.SuspendLayout();
             // 
             // btChangeValue
             // 
-            this.btChangeValue.Location = new System.Drawing.Point(141, 21);
+            this.btChangeValue.Location = new System.Drawing.Point(212, 32);
+            this.btChangeValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btChangeValue.Name = "btChangeValue";
-            this.btChangeValue.Size = new System.Drawing.Size(130, 23);
+            this.btChangeValue.Size = new System.Drawing.Size(195, 35);
             this.btChangeValue.TabIndex = 7;
             this.btChangeValue.Text = "Change value";
             this.btChangeValue.UseVisualStyleBackColor = true;
@@ -52,47 +55,52 @@
             // lbValue
             // 
             this.lbValue.AutoSize = true;
-            this.lbValue.Location = new System.Drawing.Point(17, 60);
+            this.lbValue.Location = new System.Drawing.Point(26, 92);
+            this.lbValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbValue.Name = "lbValue";
-            this.lbValue.Size = new System.Drawing.Size(73, 13);
+            this.lbValue.Size = new System.Drawing.Size(107, 20);
             this.lbValue.TabIndex = 8;
             this.lbValue.Text = "Current value:";
             // 
             // numChangeValue
             // 
-            this.numChangeValue.Location = new System.Drawing.Point(20, 21);
+            this.numChangeValue.Location = new System.Drawing.Point(30, 32);
+            this.numChangeValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numChangeValue.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.numChangeValue.Name = "numChangeValue";
-            this.numChangeValue.Size = new System.Drawing.Size(115, 20);
+            this.numChangeValue.Size = new System.Drawing.Size(172, 26);
             this.numChangeValue.TabIndex = 9;
             // 
             // tbCurrentValue
             // 
             this.tbCurrentValue.Enabled = false;
-            this.tbCurrentValue.Location = new System.Drawing.Point(97, 60);
+            this.tbCurrentValue.Location = new System.Drawing.Point(146, 92);
+            this.tbCurrentValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbCurrentValue.Name = "tbCurrentValue";
-            this.tbCurrentValue.Size = new System.Drawing.Size(100, 20);
+            this.tbCurrentValue.Size = new System.Drawing.Size(148, 26);
             this.tbCurrentValue.TabIndex = 10;
             // 
             // lbAttached
             // 
             this.lbAttached.AutoSize = true;
-            this.lbAttached.Location = new System.Drawing.Point(20, 106);
+            this.lbAttached.Location = new System.Drawing.Point(30, 163);
+            this.lbAttached.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbAttached.Name = "lbAttached";
-            this.lbAttached.Size = new System.Drawing.Size(127, 13);
+            this.lbAttached.Size = new System.Drawing.Size(187, 20);
             this.lbAttached.TabIndex = 11;
             this.lbAttached.Text = "Nr of attached observers:";
             // 
             // lbNrOfObservers
             // 
             this.lbNrOfObservers.AutoSize = true;
-            this.lbNrOfObservers.Location = new System.Drawing.Point(154, 106);
+            this.lbNrOfObservers.Location = new System.Drawing.Point(231, 163);
+            this.lbNrOfObservers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNrOfObservers.Name = "lbNrOfObservers";
-            this.lbNrOfObservers.Size = new System.Drawing.Size(13, 13);
+            this.lbNrOfObservers.Size = new System.Drawing.Size(18, 20);
             this.lbNrOfObservers.TabIndex = 12;
             this.lbNrOfObservers.Text = "0";
             // 
@@ -100,18 +108,41 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(7, 206);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 35);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Create client1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(212, 206);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(195, 35);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Create client2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 203);
+            this.ClientSize = new System.Drawing.Size(424, 312);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbNrOfObservers);
             this.Controls.Add(this.lbAttached);
             this.Controls.Add(this.tbCurrentValue);
             this.Controls.Add(this.numChangeValue);
             this.Controls.Add(this.lbValue);
             this.Controls.Add(this.btChangeValue);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -130,6 +161,8 @@
         private System.Windows.Forms.Label lbAttached;
         private System.Windows.Forms.Label lbNrOfObservers;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
 
     }
 }

@@ -8,7 +8,7 @@ namespace Week2ObserverPattern
     public class Stock:IStock
     {
         private double value = 12;
-       private static List<Observer> observers = new List<Observer>();
+        private List<IObserver> observers = new List<IObserver>();
 
         public void ChangeValue(double newvalue)
         {
@@ -20,18 +20,18 @@ namespace Week2ObserverPattern
         {
             return value;
         }
-        public void Attach(Observer o)
+        public void Attach(IObserver o)
         {
             observers.Add(o);
         }
-        public void Detach(Observer o)
+        public void Detach(IObserver o)
         {
             observers.Remove(o);
         }
         public void Notify()
         {
             for (int i = 0; i < observers.Count; i++)
-                observers[i].Update();
+                observers[i].Update(value);
         }
 
         public int GetNrOfAttachedObservers()

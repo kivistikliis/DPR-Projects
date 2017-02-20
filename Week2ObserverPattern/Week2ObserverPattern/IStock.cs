@@ -7,8 +7,8 @@ namespace Week2ObserverPattern
 {
     public interface IStock
     {
-        void Attach(Observer o);
-        void Detach(Observer o);
+        void Attach(IObserver o);
+        void Detach(IObserver o);
         void Notify();
     }
 }

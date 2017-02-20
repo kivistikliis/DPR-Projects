@@ -7,6 +7,6 @@ namespace Week2ObserverPattern
 {
     public interface IObserver
     {
-        void Update();
+        void Update(double value);
     }
 }

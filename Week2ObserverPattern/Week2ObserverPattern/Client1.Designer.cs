@@ -1,6 +1,6 @@
 ﻿namespace Week2ObserverPattern
 {
-    partial class Form2
+    partial class Client1
     {
         /// <summary>
         /// Required designer variable.
@@ -38,18 +38,18 @@
             // lbValue
             // 
             this.lbValue.AutoSize = true;
-            this.lbValue.Location = new System.Drawing.Point(11, 42);
-            this.lbValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbValue.Location = new System.Drawing.Point(16, 65);
             this.lbValue.Name = "lbValue";
-            this.lbValue.Size = new System.Drawing.Size(37, 13);
+            this.lbValue.Size = new System.Drawing.Size(54, 20);
             this.lbValue.TabIndex = 0;
             this.lbValue.Text = "Value:";
             // 
             // btAttach
             // 
-            this.btAttach.Location = new System.Drawing.Point(13, 13);
+            this.btAttach.Location = new System.Drawing.Point(20, 20);
+            this.btAttach.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btAttach.Name = "btAttach";
-            this.btAttach.Size = new System.Drawing.Size(75, 23);
+            this.btAttach.Size = new System.Drawing.Size(112, 35);
             this.btAttach.TabIndex = 1;
             this.btAttach.Text = "Attach";
             this.btAttach.UseVisualStyleBackColor = true;
@@ -57,9 +57,10 @@
             // 
             // btDeatach
             // 
-            this.btDeatach.Location = new System.Drawing.Point(95, 13);
+            this.btDeatach.Location = new System.Drawing.Point(142, 20);
+            this.btDeatach.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btDeatach.Name = "btDeatach";
-            this.btDeatach.Size = new System.Drawing.Size(75, 23);
+            this.btDeatach.Size = new System.Drawing.Size(112, 35);
             this.btDeatach.TabIndex = 2;
             this.btDeatach.Text = "Deatach";
             this.btDeatach.UseVisualStyleBackColor = true;
@@ -68,33 +69,34 @@
             // tbCurrentValue
             // 
             this.tbCurrentValue.Enabled = false;
-            this.tbCurrentValue.Location = new System.Drawing.Point(54, 43);
+            this.tbCurrentValue.Location = new System.Drawing.Point(81, 66);
+            this.tbCurrentValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbCurrentValue.Name = "tbCurrentValue";
-            this.tbCurrentValue.Size = new System.Drawing.Size(100, 20);
+            this.tbCurrentValue.Size = new System.Drawing.Size(148, 26);
             this.tbCurrentValue.TabIndex = 3;
             // 
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
             this.lbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbStatus.Location = new System.Drawing.Point(14, 81);
+            this.lbStatus.Location = new System.Drawing.Point(21, 125);
+            this.lbStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(50, 13);
+            this.lbStatus.Size = new System.Drawing.Size(101, 20);
             this.lbStatus.TabIndex = 4;
-            this.lbStatus.Text = "Attached";
+            this.lbStatus.Text = "Not attached";
             // 
-            // Form2
+            // Client1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(198, 116);
+            this.ClientSize = new System.Drawing.Size(334, 217);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.tbCurrentValue);
             this.Controls.Add(this.btDeatach);
             this.Controls.Add(this.btAttach);
             this.Controls.Add(this.lbValue);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form2";
+            this.Name = "Client1";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
