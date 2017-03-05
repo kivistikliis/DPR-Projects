@@ -11,13 +11,14 @@ namespace Week3DecoratorPattern
 {
     public partial class Form1 : Form
     {
-        IBeverage americano, cappuccino, mochachino;
-        IBeverage current;
+        IBeverage americano, cappuccino, mochachino;//create objects to display in combobox and assign to 'current' easily
+        IBeverage current;//current object, which gets modified during usage of application
 
         public Form1()
         {
             InitializeComponent();
 
+            
             americano = new Americano();
             cappuccino = new Cappuccino();
             mochachino = new Mochachino();
@@ -69,7 +70,7 @@ namespace Week3DecoratorPattern
             EnableCheckBoxes();
             current = (IBeverage)comboBox1.SelectedItem;
         }
-
+        //method to enable check boxes and submit button when needed
         private void EnableCheckBoxes()
         {
             cbCaramel.Enabled = true;
@@ -78,6 +79,7 @@ namespace Week3DecoratorPattern
             btSubmit.Enabled = true;
         }
 
+        //method to disable checkboxes and submit button to avoid exceptions or accidental clicking
         private void DisableCheckBoxes()
         {
             cbCaramel.Checked = false;
