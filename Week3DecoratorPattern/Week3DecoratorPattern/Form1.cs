@@ -26,10 +26,7 @@ namespace Week3DecoratorPattern
             comboBox1.Items.Add(cappuccino);
             comboBox1.Items.Add(mochachino);
 
-            cbCaramel.Enabled = false;
-            cbMilk.Enabled = false;
-            cbSoy.Enabled = false;
-
+            DisableCheckBoxes();
            
             lbInfo.HorizontalScrollbar = true; 
             lbInfo.ScrollAlwaysVisible = true;
@@ -39,20 +36,14 @@ namespace Week3DecoratorPattern
         private void btSubmit_Click(object sender, EventArgs e)
         {
 
-            cbCaramel.Enabled = true;
-            cbMilk.Enabled = true;
-            cbSoy.Enabled = true;
-
             lbInfo.Items.Add(current);
             lbPrice.Items.Add(current.costs());
 
             comboBox1.SelectedItem = null;
             current = null;
 
-            cbCaramel.Checked = false;
-            cbMilk.Checked = false;
-            cbSoy.Checked = false;
-            btSubmit.Enabled = false;
+            DisableCheckBoxes();
+
         }
 
         private void cbCaramel_CheckedChanged(object sender, EventArgs e)
@@ -75,11 +66,27 @@ namespace Week3DecoratorPattern
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            EnableCheckBoxes();
+            current = (IBeverage)comboBox1.SelectedItem;
+        }
+
+        private void EnableCheckBoxes()
+        {
             cbCaramel.Enabled = true;
             cbMilk.Enabled = true;
             cbSoy.Enabled = true;
             btSubmit.Enabled = true;
-            current = (IBeverage)comboBox1.SelectedItem;
+        }
+
+        private void DisableCheckBoxes()
+        {
+            cbCaramel.Checked = false;
+            cbMilk.Checked = false;
+            cbSoy.Checked = false;
+            cbCaramel.Enabled = false;
+            cbMilk.Enabled = false;
+            cbSoy.Enabled = false;
+            btSubmit.Enabled = false;
         }
     }
 }
