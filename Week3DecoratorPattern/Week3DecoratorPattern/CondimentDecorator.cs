@@ -8,11 +8,11 @@ namespace Week3DecoratorPattern
     public abstract class CondimentDecorator: IBeverage
     {
         protected IBeverage drink;
-        public double costs()
+        public virtual decimal costs()
         {
             return 0;
         }
-        public String orderDetails()
+        public override String ToString()
         {
             return "";
         }

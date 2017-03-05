@@ -7,7 +7,7 @@ namespace Week3DecoratorPattern
 {
     public interface IBeverage
     {
-        double costs();
-        String orderDetails();
+        decimal costs();
+        String ToString();
     }
 }

@@ -12,5 +12,15 @@ namespace Week3DecoratorPattern
         {
             this.drink = b;
         }
+
+        public override decimal costs()
+        {
+            return 0.50m + this.drink.costs();
+        }
+
+        public override String ToString()
+        {
+            return this.drink.ToString() + " with Soy (0.50 eur) ";
+        }
     }
 }

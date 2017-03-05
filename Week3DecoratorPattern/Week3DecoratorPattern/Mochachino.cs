@@ -7,13 +7,13 @@ namespace Week3DecoratorPattern
 {
     class Mochachino: IBeverage
     {
-        public double costs()
+        public decimal costs()
         {
             return 2;
         }
-        public String orderDetails()
+        public override String ToString()
         {
-            return "A mochachino";
+            return ("Mochachino " + this.costs());
         }
     }
 }

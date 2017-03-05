@@ -11,6 +11,18 @@ namespace Week3DecoratorPattern
             :base()
         {
             this.drink = b;
+      
+        }
+
+        public override decimal costs()
+        {
+
+            return 0.40m + this.drink.costs(); ;
+        }
+
+        public override String ToString()
+        {
+            return this.drink.ToString() + " with Milk (0.40 eur)";
         }
     }
 }

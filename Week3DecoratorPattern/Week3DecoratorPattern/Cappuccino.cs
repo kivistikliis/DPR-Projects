@@ -7,13 +7,13 @@ namespace Week3DecoratorPattern
 {
     public class Cappuccino:IBeverage
     {
-        public double costs()
+        public decimal costs()
         {
-            return 1.7;
+            return 1.7m;
         }
-        public String orderDetails()
+        public override String ToString()
         {
-            return "A cappuccino";
+            return ("Cappuccino " +this.costs());
         }
     }
 }
