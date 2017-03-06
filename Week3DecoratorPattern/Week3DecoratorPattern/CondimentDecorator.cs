@@ -12,9 +12,5 @@ namespace Week3DecoratorPattern
         {
             return 0;
         }
-        public override String ToString()
-        {
-            return "";
-        }
     }
 }
