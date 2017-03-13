@@ -7,11 +7,11 @@ namespace Week4FactoryPattern
 {
     class MinionFactory:IFactory
     {
-        public IFigure createMinion()
+        public IFigure createFigure()
         {
             return (new Minion());
         }
-        public IHouse createMinionHouse()
+        public IHouse createHouse()
         {
             return (new MinionHouse());
         }

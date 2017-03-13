@@ -16,12 +16,12 @@ namespace Week4FactoryPattern
         }
         public String run()
         {
-            figure = factory.createMinion();
-            figure.sing();
-            figure.dance();
+           figure = factory.createFigure();
+           Console.WriteLine(figure.sing());
+           Console.WriteLine(figure.dance());
 
-            house = factory.createMinionHouse();
-            house.measure();
+            house = factory.createHouse();
+            Console.WriteLine (house.measure());
             house.repair();
 
             return "You have one Minion and one House";
