@@ -13,30 +13,67 @@ namespace Week5CommandPattern
     public partial class Form1 : Form
     {
         private WashingMachine wm;
+        private Radio radio;
+
+
         private WashingMachineOn wmon;
         private WashingMachineOff wmoff;
+
+        private RadioOnWithCD radiocd;
+        private RadioVolumeUp radioup;
+        private RadioVolumeDown radiodown;
+        private RadioOff radioff;
+
+
         private RemoteControl myRemote;
         public Form1()
         {
             InitializeComponent();
             wm = new WashingMachine();
+            radio = new Radio();
+
             wmon = new WashingMachineOn(wm);
             wmoff = new WashingMachineOff(wm);
 
-            myRemote = new RemoteControl();
+            radiocd = new RadioOnWithCD(radio);
+            radioup = new RadioVolumeUp(radio);
+            radiodown = new RadioVolumeDown(radio);
+            radioff = new RadioOff(radio);
 
+            myRemote = new RemoteControl();
+            myRemote.setCommand(0, wmon, wmoff);
+            myRemote.setCommand(1, radiocd, radioff);
+            myRemote.setCommand(2, radioup, radiodown);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            myRemote.setCommand(wmon);
-            listBox1.Items.Add(myRemote.buttonPressed()); 
+            listBox1.Items.Add(myRemote.onButtonWasPushed(0)); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            myRemote.setCommand(wmoff);
-            listBox1.Items.Add(myRemote.buttonPressed());
+            listBox1.Items.Add(myRemote.offButtonWasPushed(0));
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(myRemote.onButtonWasPushed(1));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(myRemote.offButtonWasPushed(1));
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(myRemote.onButtonWasPushed(2));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(myRemote.offButtonWasPushed(2));
         }
     }
 }

@@ -53,8 +53,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Radio.cs" />
+    <Compile Include="RadioOff.cs" />
+    <Compile Include="RadioOnWithCD.cs" />
+    <Compile Include="RadioVolumeDown.cs" />
+    <Compile Include="RadioVolumeUp.cs" />
     <Compile Include="RemoteControl.cs" />
     <Compile Include="WashingMachine.cs" />
     <Compile Include="WashingMachineOff.cs" />
