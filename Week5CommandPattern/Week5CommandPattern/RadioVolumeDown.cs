@@ -17,5 +17,9 @@ namespace Week5CommandPattern
         {
             return myRadio.decreaseVolume();
         }
+        public String undo()
+        {
+            return myRadio.increaseVolume();
+        }
     }
 }

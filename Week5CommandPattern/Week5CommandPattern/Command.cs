@@ -9,5 +9,6 @@ namespace Week5CommandPattern
     public interface Command
     {
         String execute();
+        String undo();
     }
 }

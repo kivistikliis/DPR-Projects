@@ -12,5 +12,9 @@ namespace Week5CommandPattern
         {
             return "";
         }
+        public String undo()
+        {
+            return "";
+        }
     }
 }

@@ -17,5 +17,9 @@ namespace Week5CommandPattern
         {
             return myWM.on();
         }
+        public String undo()
+        {
+            return myWM.off();
+        }
     }
 }

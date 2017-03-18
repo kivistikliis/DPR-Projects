@@ -20,5 +20,9 @@ namespace Week5CommandPattern
             status = status +"\n"+ myRadio.insertCD();
             return status;
         }
+        public String undo()
+        {
+            return myRadio.off();
+        }
     }
 }
