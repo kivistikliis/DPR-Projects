@@ -5,31 +5,30 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class Minion:IFigure
+    class Smurf : IFigure
     {
+
         string Name;
 
-        public Minion(string name)
+        public Smurf(string name)
         {
             Name = name;
         }
         public String dance()
         {
-            return Name + "is dancing minion dance, huuulaaa!!!";
+            return Name + " is dancing smurf dance!";
         }
         public String sing()
         {
-            return Name + " is singing for minions";
+            return Name + " is singing a smurfsong";
         }
         public String cook()
         {
-            return Name + " is bakin' mini-cookies!!!";
+            return Name + " is cooking smurffood";
         }
-
         public override string ToString()
         {
-            return " Minion " + Name;
+            return " Smurf " + Name;
         }
-       
     }
 }

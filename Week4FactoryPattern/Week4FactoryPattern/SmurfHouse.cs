@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class MinionHouse:IHouse
+    class SmurfHouse : IHouse
     {
         private bool broken;
         private int size;
-        public MinionHouse()
+        public SmurfHouse()
         {
             broken=true;
-            size = 100;
+            size = 999;
         }
-        public string repair()
+        public String repair()
         {
             if (broken)
             {
@@ -22,7 +22,6 @@ namespace Week4FactoryPattern
                 return "Minion house is now fixed";
             }
             else return "Minion house is already fixed!";
-
         }
         public string measure()
         {

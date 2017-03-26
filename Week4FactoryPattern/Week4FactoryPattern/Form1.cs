@@ -11,21 +11,66 @@ namespace Week4FactoryPattern
 {
     public partial class Form1 : Form
     {
-        private String status;
+
+        GenericGame thegame;
+        IFactory minionFactory;
+        IFactory smurfFactory;
+
         public Form1()
         {
             InitializeComponent();
-                        
-            
+            minionFactory = new MinionFactory();
+            smurfFactory = new SmurfFactory();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btCreateMinionGame_Click(object sender, EventArgs e)
         {
-            IFactory minionFactory=new MinionFactory();
-            GenericGame theGame=new GenericGame(minionFactory);
+            thegame=new GenericGame(minionFactory);
+            lb_events.Items.Add(thegame.run());
+        }
 
-            status=theGame.run();
-            lb_events.Items.Add(status.ToString());
+        private void btCreateSmurfGame_Click(object sender, EventArgs e)
+        {
+            thegame = new GenericGame(smurfFactory);
+            lb_events.Items.Add(thegame.run());
+        }
+
+        private void btSing_Click(object sender, EventArgs e)
+        {
+            lb_events.Items.Add(thegame.sing((IFigure)lb_figures.SelectedItem));
+        }
+
+        private void btDance_Click(object sender, EventArgs e)
+        {
+            lb_events.Items.Add(thegame.dance((IFigure)lb_figures.SelectedItem));
+        }
+
+        private void btCreateMinion_Click(object sender, EventArgs e)
+        {
+            thegame.setFactory(minionFactory);
+            lb_figures.Items.Add(thegame.createFig(tbName.Text));
+            lb_events.Items.Add("New minion added!");
+        }
+
+        private void btCreateSmurf_Click(object sender, EventArgs e)
+        {
+            thegame.setFactory(smurfFactory);
+            lb_figures.Items.Add(thegame.createFig(tbName.Text));
+            lb_events.Items.Add("New smurf added!");
+        }
+
+        private void btSmurfHouse_Click(object sender, EventArgs e)
+        {
+            thegame.setFactory(smurfFactory);
+            lb_events.Items.Add(thegame.FixHouse());
+            lb_events.Items.Add(thegame.GetHouseSize());
+        }
+
+        private void btMinHouse_Click(object sender, EventArgs e)
+        {
+            thegame.setFactory(minionFactory);
+            lb_events.Items.Add(thegame.FixHouse());
+            lb_events.Items.Add(thegame.GetHouseSize());
         }
     }
 }

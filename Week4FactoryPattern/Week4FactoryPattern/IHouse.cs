@@ -7,7 +7,7 @@ namespace Week4FactoryPattern
 {
     interface IHouse
     {
-        void repair();
-        int measure();
+        string repair();
+        string measure();
     }
 }

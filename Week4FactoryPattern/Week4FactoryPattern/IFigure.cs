@@ -10,6 +10,5 @@ namespace Week4FactoryPattern
         String dance();
         String sing();
         String cook();
-        int calculate(int a, int b);
     }
 }

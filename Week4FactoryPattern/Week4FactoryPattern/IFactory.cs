@@ -7,7 +7,7 @@ namespace Week4FactoryPattern
 {
     interface IFactory
     {
-        IFigure createFigure();
+        IFigure createFigure(string name);
         IHouse createHouse();
     }
 }

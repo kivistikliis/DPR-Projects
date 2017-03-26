@@ -59,6 +59,9 @@
     <Compile Include="MinionHouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Smurf.cs" />
+    <Compile Include="SmurfFactory.cs" />
+    <Compile Include="SmurfHouse.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
