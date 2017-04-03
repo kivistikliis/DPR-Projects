@@ -19,31 +19,29 @@ namespace Week6IteratorPattern
         {
             InitializeComponent();    
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_createEI4S1_Click(object sender, EventArgs e)
         {
-            button3.Enabled = true;
+            btn_displayEI4S1.Enabled = true;
             ei4s1Class = new EI4S1();
- 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_displayEI4S1_Click(object sender, EventArgs e)
         {
             ei4s1Iterator = ei4s1Class.createIterator();
-            listBox1.Items.Add("EI4S1: ");
+            lb_students.Items.Add("EI4S1: ");
             displayStudents(ei4s1Iterator);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_displayEI4S2_Click(object sender, EventArgs e)
         {
             ei4s2Iterator = ei4s2Class.createIterator();
-            listBox1.Items.Add("EI4S2: ");
+            lb_students.Items.Add("EI4S2: ");
             displayStudents(ei4s2Iterator);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_createEI4S2_Click(object sender, EventArgs e)
         {
-            button4.Enabled = true;
+            btn_displayEI4S2.Enabled = true;
             ei4s2Class = new EI4S2();
         }
 
@@ -52,7 +50,7 @@ namespace Week6IteratorPattern
             while (iterator.hasNext())
             {
                 Student student = (Student)iterator.next();
-                listBox1.Items.Add(student.getFirstName() + " " + 
+                lb_students.Items.Add(student.getFirstName() + " " + 
                     student.getLastName() + ", age: " + student.getAge() +
                     ", year: " + student.getYear());
             }

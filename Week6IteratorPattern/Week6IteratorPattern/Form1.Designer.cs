@@ -28,86 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.lb_title = new System.Windows.Forms.Label();
+            this.btn_createEI4S1 = new System.Windows.Forms.Button();
+            this.btn_createEI4S2 = new System.Windows.Forms.Button();
+            this.lb_students = new System.Windows.Forms.ListBox();
+            this.btn_displayEI4S1 = new System.Windows.Forms.Button();
+            this.btn_displayEI4S2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(156, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ICT School";
+            this.lb_title.AutoSize = true;
+            this.lb_title.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_title.Location = new System.Drawing.Point(156, 18);
+            this.lb_title.Name = "lb_title";
+            this.lb_title.Size = new System.Drawing.Size(133, 25);
+            this.lb_title.TabIndex = 0;
+            this.lb_title.Text = "ICT School";
             // 
-            // button1
+            // btn_createEI4S1
             // 
-            this.button1.Location = new System.Drawing.Point(35, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 41);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create EI4S1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_createEI4S1.Location = new System.Drawing.Point(35, 61);
+            this.btn_createEI4S1.Name = "btn_createEI4S1";
+            this.btn_createEI4S1.Size = new System.Drawing.Size(144, 41);
+            this.btn_createEI4S1.TabIndex = 1;
+            this.btn_createEI4S1.Text = "Create EI4S1";
+            this.btn_createEI4S1.UseVisualStyleBackColor = true;
+            this.btn_createEI4S1.Click += new System.EventHandler(this.btn_createEI4S1_Click);
             // 
-            // button2
+            // btn_createEI4S2
             // 
-            this.button2.Location = new System.Drawing.Point(267, 61);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 41);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Create EI4S2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_createEI4S2.Location = new System.Drawing.Point(267, 61);
+            this.btn_createEI4S2.Name = "btn_createEI4S2";
+            this.btn_createEI4S2.Size = new System.Drawing.Size(144, 41);
+            this.btn_createEI4S2.TabIndex = 2;
+            this.btn_createEI4S2.Text = "Create EI4S2";
+            this.btn_createEI4S2.UseVisualStyleBackColor = true;
+            this.btn_createEI4S2.Click += new System.EventHandler(this.btn_createEI4S2_Click);
             // 
-            // listBox1
+            // lb_students
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(35, 177);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(376, 244);
-            this.listBox1.TabIndex = 3;
+            this.lb_students.FormattingEnabled = true;
+            this.lb_students.ItemHeight = 20;
+            this.lb_students.Location = new System.Drawing.Point(35, 177);
+            this.lb_students.Name = "lb_students";
+            this.lb_students.Size = new System.Drawing.Size(376, 244);
+            this.lb_students.TabIndex = 3;
             // 
-            // button3
+            // btn_displayEI4S1
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(35, 119);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(144, 41);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Display EI4S1";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_displayEI4S1.Enabled = false;
+            this.btn_displayEI4S1.Location = new System.Drawing.Point(35, 119);
+            this.btn_displayEI4S1.Name = "btn_displayEI4S1";
+            this.btn_displayEI4S1.Size = new System.Drawing.Size(144, 41);
+            this.btn_displayEI4S1.TabIndex = 4;
+            this.btn_displayEI4S1.Text = "Display EI4S1";
+            this.btn_displayEI4S1.UseVisualStyleBackColor = true;
+            this.btn_displayEI4S1.Click += new System.EventHandler(this.btn_displayEI4S1_Click);
             // 
-            // button4
+            // btn_displayEI4S2
             // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(267, 119);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 41);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Display EI4S2";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_displayEI4S2.Enabled = false;
+            this.btn_displayEI4S2.Location = new System.Drawing.Point(267, 119);
+            this.btn_displayEI4S2.Name = "btn_displayEI4S2";
+            this.btn_displayEI4S2.Size = new System.Drawing.Size(144, 41);
+            this.btn_displayEI4S2.TabIndex = 5;
+            this.btn_displayEI4S2.Text = "Display EI4S2";
+            this.btn_displayEI4S2.UseVisualStyleBackColor = true;
+            this.btn_displayEI4S2.Click += new System.EventHandler(this.btn_displayEI4S2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 453);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_displayEI4S2);
+            this.Controls.Add(this.btn_displayEI4S1);
+            this.Controls.Add(this.lb_students);
+            this.Controls.Add(this.btn_createEI4S2);
+            this.Controls.Add(this.btn_createEI4S1);
+            this.Controls.Add(this.lb_title);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -117,12 +117,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lb_title;
+        private System.Windows.Forms.Button btn_createEI4S1;
+        private System.Windows.Forms.Button btn_createEI4S2;
+        private System.Windows.Forms.ListBox lb_students;
+        private System.Windows.Forms.Button btn_displayEI4S1;
+        private System.Windows.Forms.Button btn_displayEI4S2;
     }
 }
 
