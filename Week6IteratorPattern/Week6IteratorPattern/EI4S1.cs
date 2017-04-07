@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    class EI4S1:Class
+    public class EI4S1:Class
     {
-        List<Student> students;
+        private List<Student> students;
 
         public EI4S1()
         {
             students = new List<Student>();
             addStudent("Dimitar", "Markov", 20, Year.SECOND);
-            addStudent("Andreea", "Iuga", 20, Year.SECOND);
+            addStudent("Dmitrii", "Orlov", 19, Year.SECOND);
         }
         public Iterator createIterator()
         {

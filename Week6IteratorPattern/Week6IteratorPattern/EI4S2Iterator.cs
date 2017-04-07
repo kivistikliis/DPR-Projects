@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    class EI4S2Iterator:Iterator
+    public class EI4S2Iterator:Iterator
     {
         Student[] students;
         int position=0;

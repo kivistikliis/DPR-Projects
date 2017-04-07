@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    interface Iterator
+    public interface Iterator
     {
         bool hasNext();
         Student next();

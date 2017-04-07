@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    class Student
+    public class Student
     {
         string firstName;
         string lastName;

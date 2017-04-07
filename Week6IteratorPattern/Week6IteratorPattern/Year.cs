@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    enum Year
+    public enum Year
     {
         FIRST=1,SECOND=2,THIRD=3,FORTH=4
     }
