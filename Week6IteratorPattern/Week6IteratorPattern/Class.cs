@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    interface Class
+    public interface Class
     {
         Iterator createIterator();
     }

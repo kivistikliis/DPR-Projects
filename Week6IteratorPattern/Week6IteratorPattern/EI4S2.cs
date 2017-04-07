@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Week6IteratorPattern
 {
-    class EI4S2:Class
+    public class EI4S2:Class
     {
-        const int MAX_Std = 6;
-        int numberOfItems = 0;
-        Student[] students;
+        private const int MAX_STD = 6;
+        private int numberOfItems = 0;
+        private Student[] students;
 
         public EI4S2()
         {
-            students = new Student[MAX_Std];
+            students = new Student[MAX_STD];
             addStudent("Alexandru", "Prodrom", 20, Year.SECOND);
             addStudent("Liis", "Kivistik", 20, Year.SECOND);
         }
@@ -28,7 +28,7 @@ namespace Week6IteratorPattern
         int age, Year year)
         {
             Student student = new Student(firstName, lastName, age, year);
-            if (numberOfItems >= MAX_Std)
+            if (numberOfItems >= MAX_STD)
             {
                 return "Exceeding the limit of students for this class!";
             }
