@@ -15,5 +15,10 @@ namespace Week4FactoryPattern
         {
             return (new MinionHouse());
         }
+
+        public override string ToString()
+        {
+            return "Minion game";
+        }
     }
 }

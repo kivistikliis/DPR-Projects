@@ -9,24 +9,34 @@ namespace Week4FactoryPattern
     {
         private bool broken;
         private int size;
+        private static int counter =1;
+        private int housenr;
+
         public MinionHouse()
         {
             broken=true;
             size = 100;
+            housenr=counter;
+            counter++;
+
         }
         public string repair()
         {
             if (broken)
             {
                 broken = false;
-                return "Minion house is now fixed";
+                return "Minion house " + housenr + " is now fixed";
             }
-            else return "Minion house is already fixed!";
+            else return "Minion house " + housenr + " is already fixed!";
 
         }
         public string measure()
         {
-            return "Minion house size is: " + size;
+            return "Minion house " + housenr+" size is: " + size+housenr;
+        }
+
+        public override string ToString(){
+            return "Minion house nr:" + housenr;
         }
     }
 }

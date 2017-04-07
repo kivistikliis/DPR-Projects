@@ -15,5 +15,10 @@ namespace Week4FactoryPattern
         {
             return (new SmurfHouse());
         }
+
+        public override string ToString()
+        {
+            return "Smurf game";
+        }
     }
 }

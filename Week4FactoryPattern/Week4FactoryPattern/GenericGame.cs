@@ -9,30 +9,31 @@ namespace Week4FactoryPattern
     {
         IFactory factory;
         IHouse house;
-        List<IFigure> figures;
        
-        public GenericGame(IFactory f)
-        {
-            factory=f;
-            figures = new List<IFigure>();
-        }
+        //public GenericGame(IFactory f)
+        //{
+        //    factory=f;
+        //}
         public String run()
         {
-            house = factory.createHouse();
-            return ("Game started: " + factory.ToString());
+            return ("Game started");
         }
 
         public void setFactory(IFactory f)
         {
             factory = f;
+            house = factory.createHouse();
         }
 
         public IFigure createFig(string name)
         {
             IFigure fig = factory.createFigure(name);
-            figures.Add(fig);
-
             return fig;
+        }
+
+        public IHouse createHouse()
+        {
+            return factory.createHouse();
         }
 
         public String sing(IFigure fig)
@@ -45,16 +46,15 @@ namespace Week4FactoryPattern
             return fig.dance();
         }
 
-        public string FixHouse()
+        public string FixHouse(IHouse house)
         {
             return house.repair();
         }
 
-        public string GetHouseSize()
+        public string GetHouseSize(IHouse house)
         {
             return house.measure();
         }
-
 
 
     }
