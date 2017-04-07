@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class GenericGame
+    public class GenericGame
     {
         IFactory factory;
         IHouse house;

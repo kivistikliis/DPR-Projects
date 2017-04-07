@@ -5,9 +5,11 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    interface IHouse
+    public interface IHouse
     {
         string repair();
         string measure();
+        int GetHouseNr();
+        int GetSize();
     }
 }

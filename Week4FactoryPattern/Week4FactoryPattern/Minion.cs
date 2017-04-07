@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class Minion:IFigure
+    public class Minion:IFigure
     {
-        string Name;
+        public string Name;
 
         public Minion(string name)
         {
@@ -15,15 +15,11 @@ namespace Week4FactoryPattern
         }
         public String dance()
         {
-            return Name + "is dancing minion dance, huuulaaa!!!";
+            return Name + " is dancing minion dance, huuulaaa!!!";
         }
         public String sing()
         {
             return Name + " is singing for minions";
-        }
-        public String cook()
-        {
-            return Name + " is bakin' mini-cookies!!!";
         }
 
         public override string ToString()

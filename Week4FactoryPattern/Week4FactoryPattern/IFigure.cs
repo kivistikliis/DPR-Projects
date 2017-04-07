@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    interface IFigure
+    public interface IFigure
     {
         String dance();
         String sing();
-        String cook();
     }
 }

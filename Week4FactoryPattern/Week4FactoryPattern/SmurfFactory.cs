@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class SmurfFactory : IFactory
+    public class SmurfFactory : IFactory
     {
         public IFigure createFigure(string name)
         {

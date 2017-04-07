@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class Smurf : IFigure
+    public class Smurf : IFigure
     {
 
-        string Name;
+        public string Name;
 
         public Smurf(string name)
         {
@@ -21,10 +21,6 @@ namespace Week4FactoryPattern
         public String sing()
         {
             return Name + " is singing a smurfsong";
-        }
-        public String cook()
-        {
-            return Name + " is cooking smurffood";
         }
         public override string ToString()
         {

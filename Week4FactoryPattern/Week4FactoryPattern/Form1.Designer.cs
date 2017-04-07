@@ -50,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Minion Pro", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 9);
+            this.label1.Location = new System.Drawing.Point(287, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 33);
             this.label1.TabIndex = 0;
@@ -64,14 +64,14 @@
             this.lb_events.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lb_events.Name = "lb_events";
             this.lb_events.ScrollAlwaysVisible = true;
-            this.lb_events.Size = new System.Drawing.Size(838, 228);
+            this.lb_events.Size = new System.Drawing.Size(661, 228);
             this.lb_events.TabIndex = 2;
             // 
             // btStartGame
             // 
-            this.btStartGame.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btStartGame.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btStartGame.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btStartGame.Location = new System.Drawing.Point(250, 61);
+            this.btStartGame.Location = new System.Drawing.Point(197, 44);
             this.btStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStartGame.Name = "btStartGame";
             this.btStartGame.Size = new System.Drawing.Size(309, 42);
@@ -82,18 +82,18 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(25, 85);
+            this.tbName.Location = new System.Drawing.Point(115, 3);
             this.tbName.Margin = new System.Windows.Forms.Padding(0);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(123, 22);
+            this.tbName.Size = new System.Drawing.Size(214, 22);
             this.tbName.TabIndex = 4;
             this.tbName.Text = "name";
             // 
             // btSing
             // 
-            this.btSing.Location = new System.Drawing.Point(393, 280);
+            this.btSing.Location = new System.Drawing.Point(115, 321);
             this.btSing.Name = "btSing";
-            this.btSing.Size = new System.Drawing.Size(95, 34);
+            this.btSing.Size = new System.Drawing.Size(103, 34);
             this.btSing.TabIndex = 5;
             this.btSing.Text = "Sing";
             this.btSing.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@
             // 
             // btDance
             // 
-            this.btDance.Location = new System.Drawing.Point(393, 320);
+            this.btDance.Location = new System.Drawing.Point(224, 321);
             this.btDance.Name = "btDance";
-            this.btDance.Size = new System.Drawing.Size(95, 35);
+            this.btDance.Size = new System.Drawing.Size(105, 34);
             this.btDance.TabIndex = 6;
             this.btDance.Text = "Dance";
             this.btDance.UseVisualStyleBackColor = true;
@@ -113,17 +113,17 @@
             // 
             this.lb_figures.FormattingEnabled = true;
             this.lb_figures.ItemHeight = 16;
-            this.lb_figures.Location = new System.Drawing.Point(333, 30);
+            this.lb_figures.Location = new System.Drawing.Point(115, 70);
             this.lb_figures.Name = "lb_figures";
             this.lb_figures.Size = new System.Drawing.Size(214, 244);
             this.lb_figures.TabIndex = 7;
             // 
             // btCreateFigure
             // 
-            this.btCreateFigure.Location = new System.Drawing.Point(25, 107);
+            this.btCreateFigure.Location = new System.Drawing.Point(115, 25);
             this.btCreateFigure.Margin = new System.Windows.Forms.Padding(0);
             this.btCreateFigure.Name = "btCreateFigure";
-            this.btCreateFigure.Size = new System.Drawing.Size(123, 40);
+            this.btCreateFigure.Size = new System.Drawing.Size(214, 40);
             this.btCreateFigure.TabIndex = 8;
             this.btCreateFigure.Text = "Create Figure";
             this.btCreateFigure.UseVisualStyleBackColor = true;
@@ -136,22 +136,20 @@
             this.panel1.Controls.Add(this.btMeasureHouse);
             this.panel1.Controls.Add(this.btRepairHouse);
             this.panel1.Controls.Add(this.lb_houses);
-            this.panel1.Controls.Add(this.rbSmurfGame);
-            this.panel1.Controls.Add(this.rbMinionGame);
             this.panel1.Controls.Add(this.btDance);
             this.panel1.Controls.Add(this.btCreateFigure);
             this.panel1.Controls.Add(this.btSing);
             this.panel1.Controls.Add(this.tbName);
             this.panel1.Location = new System.Drawing.Point(12, 132);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 366);
+            this.panel1.Size = new System.Drawing.Size(673, 366);
             this.panel1.TabIndex = 10;
             // 
             // btCreateHouse
             // 
-            this.btCreateHouse.Location = new System.Drawing.Point(27, 187);
+            this.btCreateHouse.Location = new System.Drawing.Point(404, 25);
             this.btCreateHouse.Name = "btCreateHouse";
-            this.btCreateHouse.Size = new System.Drawing.Size(121, 40);
+            this.btCreateHouse.Size = new System.Drawing.Size(232, 40);
             this.btCreateHouse.TabIndex = 13;
             this.btCreateHouse.Text = "Create house";
             this.btCreateHouse.UseVisualStyleBackColor = true;
@@ -159,7 +157,7 @@
             // 
             // btMeasureHouse
             // 
-            this.btMeasureHouse.Location = new System.Drawing.Point(625, 320);
+            this.btMeasureHouse.Location = new System.Drawing.Point(516, 319);
             this.btMeasureHouse.Name = "btMeasureHouse";
             this.btMeasureHouse.Size = new System.Drawing.Size(120, 35);
             this.btMeasureHouse.TabIndex = 12;
@@ -169,9 +167,9 @@
             // 
             // btRepairHouse
             // 
-            this.btRepairHouse.Location = new System.Drawing.Point(625, 280);
+            this.btRepairHouse.Location = new System.Drawing.Point(404, 320);
             this.btRepairHouse.Name = "btRepairHouse";
-            this.btRepairHouse.Size = new System.Drawing.Size(120, 34);
+            this.btRepairHouse.Size = new System.Drawing.Size(106, 34);
             this.btRepairHouse.TabIndex = 0;
             this.btRepairHouse.Text = "Repair  house";
             this.btRepairHouse.UseVisualStyleBackColor = true;
@@ -181,15 +179,15 @@
             // 
             this.lb_houses.FormattingEnabled = true;
             this.lb_houses.ItemHeight = 16;
-            this.lb_houses.Location = new System.Drawing.Point(582, 30);
+            this.lb_houses.Location = new System.Drawing.Point(404, 70);
             this.lb_houses.Name = "lb_houses";
-            this.lb_houses.Size = new System.Drawing.Size(224, 244);
+            this.lb_houses.Size = new System.Drawing.Size(232, 244);
             this.lb_houses.TabIndex = 11;
             // 
             // rbSmurfGame
             // 
             this.rbSmurfGame.AutoSize = true;
-            this.rbSmurfGame.Location = new System.Drawing.Point(168, 15);
+            this.rbSmurfGame.Location = new System.Drawing.Point(252, 91);
             this.rbSmurfGame.Name = "rbSmurfGame";
             this.rbSmurfGame.Size = new System.Drawing.Size(108, 21);
             this.rbSmurfGame.TabIndex = 10;
@@ -201,7 +199,7 @@
             // rbMinionGame
             // 
             this.rbMinionGame.AutoSize = true;
-            this.rbMinionGame.Location = new System.Drawing.Point(25, 15);
+            this.rbMinionGame.Location = new System.Drawing.Point(366, 91);
             this.rbMinionGame.Name = "rbMinionGame";
             this.rbMinionGame.Size = new System.Drawing.Size(112, 21);
             this.rbMinionGame.TabIndex = 9;
@@ -215,11 +213,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(874, 752);
+            this.ClientSize = new System.Drawing.Size(713, 752);
             this.Controls.Add(this.btStartGame);
             this.Controls.Add(this.lb_events);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.rbMinionGame);
+            this.Controls.Add(this.rbSmurfGame);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    interface IFactory
+    public interface IFactory
     {
         IFigure createFigure(string name);
         IHouse createHouse();

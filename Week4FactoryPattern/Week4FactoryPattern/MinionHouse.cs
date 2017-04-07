@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class MinionHouse:IHouse
+   public class MinionHouse:IHouse
     {
         private bool broken;
         private int size;
@@ -32,7 +32,17 @@ namespace Week4FactoryPattern
         }
         public string measure()
         {
-            return "Minion house " + housenr+" size is: " + size+housenr;
+            return "Minion house " + housenr+" size is: " + GetSize();
+        }
+
+        public int GetSize()
+        {
+            return size + housenr;
+        }
+
+        public int GetHouseNr()
+        {
+            return housenr;
         }
 
         public override string ToString(){

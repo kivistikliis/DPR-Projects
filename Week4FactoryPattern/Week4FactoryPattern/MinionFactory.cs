@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week4FactoryPattern
 {
-    class MinionFactory:IFactory
+   public class MinionFactory:IFactory
     {
         public IFigure createFigure(string name)
         {
