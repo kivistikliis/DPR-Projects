@@ -8,14 +8,13 @@ namespace Week4FactoryPattern
    public class SmurfHouse : IHouse
     {
         private bool broken;
-        private int size;
+        private int basesize=400;
         private static int counter = 1;
         private int housenr;
 
         public SmurfHouse()
         {
             broken=true;
-            size = 400;
             housenr = counter;
             counter++;
         }
@@ -24,18 +23,18 @@ namespace Week4FactoryPattern
             if (broken)
             {
                 broken = false;
-                return "Minion house " + housenr + " is now fixed";
+                return "Smurf house " + housenr + " is now fixed";
             }
-            else return "Minion house " + housenr + " is already fixed!";
+            else return "Smurf house " + housenr + " is already fixed!";
         }
         public string measure()
         {
-            return "Minion house " + housenr + " size is: " + GetSize();
+            return "Smurf house " + housenr + " size is: " + GetSize();
         }
 
         public int GetSize()
         {
-            return size + housenr;
+            return basesize + housenr;
         }
 
         public int GetHouseNr()
