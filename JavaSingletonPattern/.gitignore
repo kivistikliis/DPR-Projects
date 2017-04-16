@@ -25,3 +25,12 @@
 hs_err_pid*
 
 # End of https://www.gitignore.io/api/java
+
+# NetBeans specific #
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
