@@ -8,14 +8,13 @@ namespace Week4FactoryPattern
    public class MinionHouse:IHouse
     {
         private bool broken;
-        private int size;
+        private int basesize=100;
         private static int counter =1;
         private int housenr;
 
         public MinionHouse()
         {
             broken=true;
-            size = 100;
             housenr=counter;
             counter++;
 
@@ -37,7 +36,7 @@ namespace Week4FactoryPattern
 
         public int GetSize()
         {
-            return size + housenr;
+            return basesize + housenr;
         }
 
         public int GetHouseNr()

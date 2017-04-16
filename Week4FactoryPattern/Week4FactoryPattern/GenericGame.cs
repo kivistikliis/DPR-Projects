@@ -8,12 +8,8 @@ namespace Week4FactoryPattern
     public class GenericGame
     {
         IFactory factory;
-        IHouse house;
-       
-        //public GenericGame(IFactory f)
-        //{
-        //    factory=f;
-        //}
+        
+
         public String run()
         {
             return ("Game started");
@@ -22,7 +18,6 @@ namespace Week4FactoryPattern
         public void setFactory(IFactory f)
         {
             factory = f;
-            house = factory.createHouse();
         }
 
         public IFigure createFig(string name)
@@ -33,7 +28,8 @@ namespace Week4FactoryPattern
 
         public IHouse createHouse()
         {
-            return factory.createHouse();
+            IHouse house =factory.createHouse();
+            return house;
         }
 
         public String sing(IFigure fig)
