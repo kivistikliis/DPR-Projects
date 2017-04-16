@@ -11,9 +11,18 @@ package javasingletonpattern;
  */
 public class JavaSingletonPattern {
 
-
+    static ChocolateBoiler boiler;
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+        new Thread(() -> {
+            boiler=ChocolateBoiler.getInstance();
+        }).start();
+        
+        new Thread(() -> {
+            boiler=ChocolateBoiler.getInstance();           
+        }).start();
     }
     
 }
